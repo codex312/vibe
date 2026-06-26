@@ -196,55 +196,18 @@
       margin-top: 4px;
     }
 
-    /* Dark mode toggle inside login */
-    .dark-toggle {
-      position: fixed;
-      right: 30px;
-      bottom: 110px;
-      background: #2d2d2d;
-      color: #B0963F;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      box-shadow: 0 4px 15px #000;
-      z-index: 999;
-      border: 1px solid #444;
-      cursor: pointer;
-      transition: 0.2s;
+    /* ===== FLOATING WIDGETS ===== */
+    .dark-toggle, .back-top {
+      position: fixed; right: 30px; background: #2d2d2d; color: #B0963F;
+      width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; box-shadow: 0 4px 15px #000; z-index: 999; border: 1px solid #444;
+      cursor: pointer; transition: 0.2s;
     }
-    .dark-toggle:hover {
-      background: #B0963F;
-      color: #1a1a1a;
-    }
-    .back-top {
-      position: fixed;
-      right: 30px;
-      bottom: 170px;
-      background: #2d2d2d;
-      color: #B0963F;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      box-shadow: 0 4px 15px #000;
-      z-index: 999;
-      border: 1px solid #444;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .back-top:hover {
-      background: #B0963F;
-      color: #1a1a1a;
-    }
+    .dark-toggle { bottom: 110px; }
+    .back-top { bottom: 170px; }
+    .dark-toggle:hover, .back-top:hover { background: #B0963F; color: #1a1a1a; }
 
-    /* Tawk.to floating chat - keep it */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 480px) {
       .login-card { padding: 30px 20px; }
       .login-logo h1 { font-size: 2rem; }
@@ -290,11 +253,11 @@
     </div>
   </div>
 
-  <!-- Floating Widgets -->
+  <!-- ===== FLOATING WIDGETS ===== -->
   <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
   <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
 
-  <!-- Tawk.to Live Chat Script -->
+  <!-- ===== Tawk.to Live Chat Script ===== -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -308,7 +271,7 @@
   </script>
 
   <script>
-    // Dark mode toggle
+    // ===== DARK MODE TOGGLE =====
     document.getElementById('darkToggle').addEventListener('click', function() {
       document.body.classList.toggle('dark-mode');
       if(document.body.classList.contains('dark-mode')) {
@@ -328,36 +291,33 @@
       }
     });
 
-    // Back to top
+    // ===== BACK TO TOP =====
     document.getElementById('backTop').addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Login form handler (demo)
+    // ===== LOGIN FORM HANDLER (Redirects to Dashboard) =====
     function handleLogin(e) {
       e.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       
       if(email && password.length >= 8) {
-        // Show success message
+        // Show loading state
         const btn = document.querySelector('.btn-login');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
         btn.style.opacity = '0.7';
         
+        // Simulate login process and redirect to dashboard
         setTimeout(() => {
           btn.innerHTML = '<i class="fas fa-check"></i> Welcome Back!';
           btn.style.background = '#28a745';
           btn.style.color = '#fff';
           
+          // Redirect to dashboard after 1.5 seconds
           setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background = '';
-            btn.style.color = '';
-            btn.style.opacity = '1';
-            alert('✅ Login successful! Redirecting to dashboard...');
-            window.location.href = 'index.html';
+            window.location.href = 'dashboard.html';
           }, 1500);
         }, 1500);
       } else {
@@ -366,7 +326,7 @@
       return false;
     }
 
-    // Enter key support
+    // ===== ENTER KEY SUPPORT =====
     document.addEventListener('keydown', function(e) {
       if(e.key === 'Enter') {
         const form = document.getElementById('loginForm');
@@ -375,6 +335,11 @@
         }
       }
     });
+
+    // ===== PRE-FILL DEMO CREDENTIALS (Optional) =====
+    // Auto-fill for demo purposes
+    document.getElementById('email').value = 'demo@vibegenx.com';
+    document.getElementById('password').value = 'password123';
   </script>
 </body>
 </html>
