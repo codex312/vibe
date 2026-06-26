@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Leads · VibeGenX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a1a; color: #e8e0d2; font-family: 'Roboto', sans-serif; line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+    .gold { color: #B0963F; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 70px 0; }
+    a { color: #B0963F; text-decoration: none; }
+
+    .sticky-header {
+      background: #1a1a1aee;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #2d2d2d;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      padding: 10px 0;
+    }
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #B0963F;
+      font-family: 'Poppins', sans-serif;
+    }
+    .logo span { color: #fff; }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+    }
+    .nav-menu a { color: #ddd; }
+    .nav-menu a:hover { color: #B0963F; }
+    .nav-menu a.active { color: #B0963F; border-bottom: 2px solid #B0963F; }
+    .cta-login {
+      background: #B0963F;
+      color: #1a1a1a !important;
+      padding: 8px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 30px;
+    }
+    .product-selector { background: #1f1f1f; padding: 30px; border-radius: 20px; border: 1px solid #2d2d2d; }
+    .product-selector select, .product-selector input {
+      width: 100%; padding: 12px; background: #2d2d2d; border: 1px solid #3d3d3d; border-radius: 10px; color: #fff; margin: 10px 0;
+    }
+    .checkout-form { background: #1f1f1f; padding: 30px; border-radius: 20px; border: 1px solid #2d2d2d; }
+    .checkout-form input, .checkout-form textarea {
+      width: 100%; padding: 12px; background: #2d2d2d; border: 1px solid #3d3d3d; border-radius: 10px; color: #fff; margin: 8px 0;
+    }
+    .btn-gold {
+      background: #B0963F; color: #1a1a1a; padding: 14px 40px; border: none; border-radius: 50px;
+      font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: 0.3s;
+    }
+    .btn-gold:hover { background: #d4b05e; }
+
+    .footer {
+      background: #111;
+      padding: 50px 0 20px;
+      border-top: 2px solid #B0963F40;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 30px;
+    }
+    .footer a { color: #aaa; display: block; margin: 5px 0; }
+    .footer a:hover { color: #B0963F; }
+    .footer-copy { border-top: 1px solid #2d2d2d; padding-top: 25px; margin-top: 30px; text-align: center; color: #777; }
+
+    .floating-whatsapp {
+      position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff;
+      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; box-shadow: 0 8px 25px #00000080; z-index: 999;
+    }
+    .dark-toggle, .back-top {
+      position: fixed; right: 30px; background: #2d2d2d; color: #B0963F;
+      width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; box-shadow: 0 4px 15px #000; z-index: 999; border: 1px solid #444;
+      cursor: pointer;
+    }
+    .dark-toggle { bottom: 110px; }
+    .back-top { bottom: 170px; }
+
+    @media (max-width: 768px) {
+      .checkout-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-menu { gap: 12px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">Vibe<span>GenX</span></a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="leads.html">Insurance Leads</a></li>
+        <li><a href="pricing.html">Lead Pricing</a></li>
+        <li><a href="buy.html" class="active">Buy Leads</a></li>
+        <li><a href="blog.html">Blogs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" class="cta-login"><i class="fas fa-lock"></i> CRM Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h1 style="font-size:3rem;">Buy <span class="gold">Leads</span></h1>
+      <p style="color:#bbb; font-size:1.2rem;">Select lead types, choose quantities, and submit your order.</p>
+      <div class="checkout-grid">
+        <div class="product-selector">
+          <h3>Select Leads</h3>
+          <label>Lead Type</label>
+          <select><option>Auto Insurance</option><option>Home Insurance</option><option>Final Expense</option><option>Health Insurance</option></select>
+          <label>Quantity</label>
+          <input type="number" value="10" min="1" />
+          <p style="margin-top:15px;color:#B0963F;">Price: $12/lead · Total: $120</p>
+          <button class="btn-gold" style="margin-top:15px;">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+        </div>
+        <div class="checkout-form">
+          <h3>Checkout</h3>
+          <input type="text" placeholder="Full Name" />
+          <input type="email" placeholder="Email Address" />
+          <input type="tel" placeholder="Phone Number" />
+          <textarea rows="3" placeholder="Additional Notes"></textarea>
+          <button class="btn-gold" style="width:100%;">Place Order <i class="fas fa-arrow-right"></i></button>
+          <p style="margin-top:15px;font-size:0.9rem;color:#888;"><i class="fas fa-lock gold"></i> Secured via PeachPay</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><h4 style="color:#B0963F;">VibeGenX</h4><p style="color:#aaa;">Lead Generation & Live Transfers 24/7.</p><p><i class="fas fa-phone gold"></i> +923130056221</p></div>
+      <div><h4>Services</h4><a href="leads.html">Auto</a><a href="leads.html">Home</a></div>
+      <div><h4>Blogs</h4><a href="blog.html">Trends</a></div>
+      <div><h4>Company</h4><a href="contact.html">Contact</a><a href="pricing.html">Pricing</a></div>
+    </div>
+    <div class="container footer-copy">All Rights Reserved © Copyright 2026 | VibeGenX</div>
+  </footer>
+
+  <a href="https://wa.me/923130056221" class="floating-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
+  <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
+
+  <!-- Tawk.to Live Chat Script -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6a3ee7b1eafe991d4bf9fbed/1js2ri48h';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#backTop').click(function(){ $('html,body').animate({scrollTop:0},500); });
+      $('#darkToggle').click(function(){
+        $('body').toggleClass('dark-mode');
+        if($('body').hasClass('dark-mode')){ 
+          $('body').css({'background':'#0a0a0a','color':'#ddd'});
+          $('.sticky-header,.footer,.product-selector,.checkout-form').css('background','#141414');
+          $('#darkToggle i').toggleClass('fa-moon fa-sun');
+        } else {
+          $('body').css({'background':'#1a1a1a','color':'#e8e0d2'});
+          $('.sticky-header,.footer,.product-selector,.checkout-form').css('background','');
+          $('#darkToggle i').toggleClass('fa-moon fa-sun');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
