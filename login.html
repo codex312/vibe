@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CRM Login · VibeGenX</title>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,6 +63,20 @@
       margin: 0 0 30px 0;
       opacity: 0.4;
     }
+    .login-badge {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .login-badge span {
+      background: #2d2d2d;
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      color: #B0963F;
+      border: 1px solid #B0963F30;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
     .form-group {
       margin-bottom: 22px;
     }
@@ -95,6 +111,25 @@
     }
     .form-group input::placeholder {
       color: #666;
+    }
+    .form-group .input-icon-wrapper {
+      position: relative;
+    }
+    .form-group .input-icon-wrapper i {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #666;
+    }
+    .form-group .input-icon-wrapper input {
+      padding-left: 44px;
+    }
+    .password-hint {
+      text-align: right;
+      font-size: 0.75rem;
+      color: #555;
+      margin-top: 4px;
     }
     .form-options {
       display: flex;
@@ -148,6 +183,10 @@
     .btn-login i {
       margin-right: 10px;
     }
+    .btn-login:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
     .login-footer {
       text-align: center;
       margin-top: 25px;
@@ -175,25 +214,18 @@
     .back-home i {
       margin-right: 8px;
     }
-    .login-badge {
-      text-align: center;
-      margin-bottom: 20px;
+    .login-error {
+      background: rgba(220,53,69,0.15);
+      border: 1px solid #dc3545;
+      color: #dc3545;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+      display: none;
     }
-    .login-badge span {
-      background: #2d2d2d;
-      padding: 6px 20px;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      color: #B0963F;
-      border: 1px solid #B0963F30;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .password-hint {
-      text-align: right;
-      font-size: 0.75rem;
-      color: #555;
-      margin-top: 4px;
+    .login-error.show {
+      display: block;
     }
 
     /* ===== FLOATING WIDGETS ===== */
@@ -215,41 +247,70 @@
   </style>
 </head>
 <body>
-  <!-- Login Card -->
+
+  <!-- ===== LOGIN CARD ===== -->
   <div class="login-wrapper">
     <div class="login-card">
+
+      <!-- Logo -->
       <div class="login-logo">
         <h1>Vibe<span>GenX</span></h1>
         <p>Lead Generation &amp; Live Transfers 24/7</p>
       </div>
       <div class="login-divider"></div>
+
+      <!-- Badge -->
       <div class="login-badge">
         <span><i class="fas fa-lock"></i> Secure CRM Portal</span>
       </div>
 
+      <!-- Error Message -->
+      <div class="login-error" id="loginError">
+        <i class="fas fa-exclamation-circle"></i> Invalid email or password. Please try again.
+      </div>
+
+      <!-- Login Form -->
       <form id="loginForm" onsubmit="return handleLogin(event)">
         <div class="form-group">
           <label><i class="fas fa-envelope"></i> Email Address</label>
-          <input type="email" id="email" placeholder="your@email.com" required />
+          <div class="input-icon-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" placeholder="your@email.com" required value="demo@vibegenx.com" />
+          </div>
         </div>
         <div class="form-group">
           <label><i class="fas fa-lock"></i> Password</label>
-          <input type="password" id="password" placeholder="Enter your password" required />
+          <div class="input-icon-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" placeholder="Enter your password" required value="password123" />
+          </div>
           <div class="password-hint">Minimum 8 characters</div>
         </div>
+
         <div class="form-options">
-          <label><input type="checkbox" /> Remember Me</label>
+          <label><input type="checkbox" checked /> Remember Me</label>
           <a href="#">Forgot Password?</a>
         </div>
-        <button type="submit" class="btn-login">
+
+        <button type="submit" class="btn-login" id="loginBtn">
           <i class="fas fa-sign-in-alt"></i> Login to Dashboard
         </button>
       </form>
 
+      <!-- Footer -->
       <div class="login-footer">
         <p>Don't have an account? <a href="#">Contact Support</a></p>
         <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
       </div>
+
+      <!-- Demo Credentials Hint -->
+      <div style="text-align:center; margin-top:18px; padding:10px; background:#2d2d2d; border-radius:10px; border:1px dashed #B0963F40;">
+        <p style="font-size:0.7rem; color:#666;">
+          <i class="fas fa-info-circle" style="color:#B0963F;"></i> 
+          Demo: <span style="color:#B0963F;">demo@vibegenx.com</span> / <span style="color:#B0963F;">password123</span>
+        </p>
+      </div>
+
     </div>
   </div>
 
@@ -257,7 +318,7 @@
   <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
   <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
 
-  <!-- ===== Tawk.to Live Chat Script ===== -->
+  <!-- ===== Tawk.to Live Chat ===== -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -280,6 +341,7 @@
         document.querySelectorAll('.form-group input').forEach(el => {
           el.style.background = '#1f1f1f';
         });
+        document.querySelector('.login-error').style.background = 'rgba(220,53,69,0.1)';
         this.innerHTML = '<i class="fas fa-sun"></i>';
       } else {
         document.body.style.background = '';
@@ -287,6 +349,7 @@
         document.querySelectorAll('.form-group input').forEach(el => {
           el.style.background = '';
         });
+        document.querySelector('.login-error').style.background = '';
         this.innerHTML = '<i class="fas fa-moon"></i>';
       }
     });
@@ -296,33 +359,48 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ===== LOGIN FORM HANDLER (Redirects to Dashboard) =====
+    // ===== LOGIN FORM HANDLER (Redirects to CRM Dashboard) =====
     function handleLogin(e) {
       e.preventDefault();
+      
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+      const errorEl = document.getElementById('loginError');
+      const btn = document.getElementById('loginBtn');
       
-      if(email && password.length >= 8) {
-        // Show loading state
-        const btn = document.querySelector('.btn-login');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
-        btn.style.opacity = '0.7';
-        
-        // Simulate login process and redirect to dashboard
-        setTimeout(() => {
-          btn.innerHTML = '<i class="fas fa-check"></i> Welcome Back!';
-          btn.style.background = '#28a745';
-          btn.style.color = '#fff';
-          
-          // Redirect to dashboard after 1.5 seconds
-          setTimeout(() => {
-            window.location.href = 'dashboard.html';
-          }, 1500);
-        }, 1500);
-      } else {
-        alert('⚠️ Please enter a valid email and password (min 8 characters).');
+      // Hide any previous error
+      errorEl.classList.remove('show');
+      
+      // Validation
+      if(!email || !password) {
+        errorEl.textContent = '⚠️ Please enter both email and password.';
+        errorEl.classList.add('show');
+        return false;
       }
+      
+      if(password.length < 8) {
+        errorEl.textContent = '⚠️ Password must be at least 8 characters long.';
+        errorEl.classList.add('show');
+        return false;
+      }
+      
+      // Show loading state
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+      btn.disabled = true;
+      
+      // Simulate login process
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-check"></i> Welcome Back!';
+        btn.style.background = '#28a745';
+        btn.style.color = '#fff';
+        
+        // Redirect to CRM Dashboard after 1 second
+        setTimeout(() => {
+          window.location.href = 'crm-dashboard.html';
+        }, 1000);
+      }, 1500);
+      
       return false;
     }
 
@@ -336,10 +414,35 @@
       }
     });
 
-    // ===== PRE-FILL DEMO CREDENTIALS (Optional) =====
-    // Auto-fill for demo purposes
-    document.getElementById('email').value = 'demo@vibegenx.com';
-    document.getElementById('password').value = 'password123';
+    // ===== TOGGLE PASSWORD VISIBILITY (Optional) =====
+    // Add eye icon toggle for password field
+    const passwordInput = document.getElementById('password');
+    const passwordWrapper = passwordInput.closest('.input-icon-wrapper');
+    
+    // Create eye toggle
+    const eyeIcon = document.createElement('i');
+    eyeIcon.className = 'fas fa-eye';
+    eyeIcon.style.cssText = `
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #666;
+      cursor: pointer;
+      z-index: 2;
+    `;
+    passwordWrapper.appendChild(eyeIcon);
+    
+    eyeIcon.addEventListener('click', function() {
+      if(passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        this.className = 'fas fa-eye-slash';
+      } else {
+        passwordInput.type = 'password';
+        this.className = 'fas fa-eye';
+      }
+    });
   </script>
+
 </body>
 </html>
