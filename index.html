@@ -3,21 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Insurance Leads · VibeGenX</title>
+  <title>VibeGenX · Premium Insurance Leads</title>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <style>
+    /* ===== GLOBAL STYLES ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a1a; color: #e8e0d2; font-family: 'Roboto', sans-serif; line-height: 1.6; }
-    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+    body {
+      background: #1a1a1a;
+      color: #e8e0d2;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, .heading-font {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
     .gold { color: #B0963F; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    section { padding: 70px 0; }
+    .bg-gold { background: #B0963F; }
+    .text-gold { color: #B0963F; }
     a { color: #B0963F; text-decoration: none; transition: 0.3s; }
     a:hover { color: #d4b05e; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 70px 0; }
 
+    /* ===== HEADER ===== */
     .sticky-header {
       background: #1a1a1aee;
       backdrop-filter: blur(6px);
@@ -59,35 +77,159 @@
       padding: 8px 22px;
       border-radius: 40px;
       font-weight: 600;
-    }
-
-    .lead-detail-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .lead-detail-card {
-      background: #1f1f1f;
-      padding: 30px;
-      border-radius: 20px;
-      border: 1px solid #2d2d2d;
+      font-size: 0.9rem;
       transition: 0.3s;
     }
-    .lead-detail-card:hover { border-color: #B0963F; box-shadow: 0 0 30px #b0963f22; }
-    .lead-detail-card i { font-size: 2.8rem; color: #B0963F; margin-bottom: 15px; }
-    .lead-detail-card h3 { color: #fff; }
-    .btn-sm {
-      background: #B0963F;
-      color: #1a1a1a;
-      padding: 8px 25px;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 15px;
-      font-weight: 600;
-    }
-    .btn-sm:hover { background: #d4b05e; color: #111; }
+    .cta-login:hover { background: #d4b05e; color: #111 !important; }
 
+    .scroll-progress {
+      height: 3px;
+      background: #B0963F;
+      width: 0%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      transition: width 0.1s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background: radial-gradient(circle at 30% 40%, #2d2d2d, #0f0f0f);
+      border-bottom: 1px solid #2d2d2d;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero h1 { font-size: 3.8rem; line-height: 1.2; }
+    .hero h1 span { color: #B0963F; }
+    .hero p { font-size: 1.2rem; color: #cbc3b5; margin: 20px 0; }
+    .hero-bullets { list-style: none; margin: 25px 0; }
+    .hero-bullets li { margin: 8px 0; font-weight: 400; }
+    .hero-bullets i { color: #B0963F; margin-right: 12px; }
+    .btn-gold {
+      background: #B0963F;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-weight: 700;
+      color: #1a1a1a;
+      font-size: 1.1rem;
+      display: inline-block;
+      transition: 0.3s;
+      box-shadow: 0 0 20px #b0963f55;
+    }
+    .btn-gold:hover { background: #d4b05e; transform: scale(1.02); }
+    .hero-img img {
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid #B0963F40;
+      box-shadow: 0 20px 40px #00000080;
+    }
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2d2d2d;
+      padding: 8px 20px;
+      border-radius: 40px;
+      border-left: 3px solid #B0963F;
+      margin-bottom: 20px;
+    }
+    .pulse-dot {
+      width: 12px; height: 12px;
+      background: #28a745;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+
+    /* ===== TRUST BADGES ===== */
+    .trust-grid {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+      background: #1f1f1f;
+      padding: 30px 20px;
+      border-radius: 60px;
+      margin: 20px 0;
+      border: 1px solid #2d2d2d;
+    }
+    .trust-item { text-align: center; }
+    .trust-item i { font-size: 2.4rem; color: #B0963F; }
+    .trust-item .counter { font-size: 2.2rem; font-weight: 700; color: #fff; }
+
+    /* ===== LEAD TYPES GRID ===== */
+    .lead-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .lead-card {
+      background: #232323;
+      padding: 25px 18px;
+      border-radius: 18px;
+      border: 1px solid #2d2d2d;
+      transition: 0.3s;
+      text-align: center;
+      box-shadow: 0 6px 0 #0f0f0f;
+    }
+    .lead-card:hover {
+      border-color: #B0963F;
+      box-shadow: 0 0 30px #b0963f33, 0 8px 0 #0f0f0f;
+      transform: translateY(-4px);
+    }
+    .lead-card i { font-size: 2.5rem; color: #B0963F; margin-bottom: 12px; }
+    .lead-card h4 { color: #fff; font-weight: 600; }
+
+    /* ===== FAQ ===== */
+    .faq-item {
+      background: #1f1f1f;
+      margin: 12px 0;
+      border-radius: 12px;
+      border-left: 4px solid #B0963F;
+      padding: 12px 22px;
+      cursor: pointer;
+    }
+    .faq-question { font-weight: 600; color: #f0e8dc; display: flex; justify-content: space-between; }
+    .faq-answer { display: none; padding: 12px 0 6px; color: #bbb; }
+    .faq-item.active .faq-answer { display: block; }
+
+    /* ===== PARTNERS ===== */
+    .partner-logo {
+      filter: grayscale(1);
+      transition: 0.3s;
+      opacity: 0.7;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #888;
+    }
+    .partner-logo:hover { filter: grayscale(0); opacity: 1; color: #B0963F; }
+
+    /* ===== BLOG ===== */
+    .blog-card {
+      background: #1f1f1f;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #2d2d2d;
+      transition: 0.3s;
+      margin: 0 10px;
+    }
+    .blog-card:hover { border-color: #B0963F; box-shadow: 0 0 30px #b0963f22; }
+    .blog-card img { width: 100%; height: 180px; object-fit: cover; }
+    .blog-content { padding: 18px; }
+    .blog-meta { font-size: 0.8rem; color: #B0963F; }
+
+    /* ===== FOOTER ===== */
     .footer {
       background: #111;
       padding: 50px 0 20px;
@@ -102,64 +244,148 @@
     .footer a:hover { color: #B0963F; }
     .footer-copy { border-top: 1px solid #2d2d2d; padding-top: 25px; margin-top: 30px; text-align: center; color: #777; }
 
+    /* ===== FLOATING WIDGETS ===== */
     .dark-toggle, .back-top {
       position: fixed; right: 30px; background: #2d2d2d; color: #B0963F;
       width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem; box-shadow: 0 4px 15px #000; z-index: 999; border: 1px solid #444;
-      cursor: pointer;
+      cursor: pointer; transition: 0.2s;
     }
     .dark-toggle { bottom: 110px; }
     .back-top { bottom: 170px; }
     .dark-toggle:hover, .back-top:hover { background: #B0963F; color: #1a1a1a; }
 
-    @media (max-width: 768px) {
-      .lead-detail-grid { grid-template-columns: 1fr; }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .lead-grid { grid-template-columns: repeat(2,1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 650px) {
       .nav-menu { gap: 12px; font-size: 0.8rem; }
+      .lead-grid { grid-template-columns: 1fr; }
+      .trust-grid { flex-direction: column; align-items: center; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.6rem; }
     }
   </style>
 </head>
 <body>
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- HEADER -->
   <header class="sticky-header">
     <div class="container nav-wrapper">
       <a href="index.html" class="logo">Vibe<span>GenX</span></a>
       <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="leads.html" class="active">Insurance Leads</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="leads.html">Insurance Leads</a></li>
         <li><a href="pricing.html">Lead Pricing</a></li>
         <li><a href="buy.html">Buy Leads</a></li>
         <li><a href="blog.html">Blogs</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="#" class="cta-login"><i class="fas fa-lock"></i> CRM Login</a></li>
+        <li><a href="login.html" class="cta-login"><i class="fas fa-lock"></i> CRM Login</a></li>
       </ul>
     </div>
   </header>
 
-  <section>
-    <div class="container">
-      <h1 style="font-size:3rem;">Insurance <span class="gold">Leads</span></h1>
-      <p style="color:#bbb; font-size:1.2rem;">Detailed breakdown of each lead type with benefits and CTAs.</p>
-      <div class="lead-detail-grid">
-        <div class="lead-detail-card"><i class="fas fa-car"></i><h3>Auto Insurance Leads</h3><p>High-intent consumers actively seeking auto insurance. Verified and exclusive.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-home"></i><h3>Home Insurance Leads</h3><p>Top-notch home insurance leads and calls. Real-time, high conversion.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-heartbeat"></i><h3>Final Expense Insurance</h3><p>Consumers interested in final expense insurance. High-intent, exclusive.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-hospital"></i><h3>Health Insurance Leads</h3><p>Genuinely interested health insurance consumers. Verified and fresh.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-medkit"></i><h3>Medicare Insurance Leads</h3><p>Medicare agents drive success with our leads. Exclusive, high-quality.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-flag-usa"></i><h3>ACA Insurance Leads</h3><p>Find the best ACA plan for your needs. Real-time, targeted leads.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="live-indicator"><span class="pulse-dot"></span> Live 24/7 · exclusive leads</div>
+        <h1>Lead Generation & <span>Live Transfers 24/7</span></h1>
+        <p>We offer exceptional lead generation and outsourcing services, positioning us as the foremost provider of B2C and B2B leads in the USA.</p>
+        <ul class="hero-bullets">
+          <li><i class="fas fa-check-circle"></i> Qualified Leads & Live Transfer, Quality is Our Priority</li>
+          <li><i class="fas fa-check-circle"></i> Free marketing training and unparalleled Tech support</li>
+        </ul>
+        <a href="contact.html" class="btn-gold">Get in Contact <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="hero-img">
+        <img src="https://placecats.com/800/500?random=1" alt="call center team" />
       </div>
     </div>
   </section>
 
+  <!-- TRUST BADGES -->
+  <section style="padding: 20px 0 0;">
+    <div class="container trust-grid">
+      <div class="trust-item"><i class="fas fa-award"></i><div class="counter" data-target="12">0</div><div>+ Years Experience</div></div>
+      <div class="trust-item"><i class="fas fa-bolt"></i><div class="counter" data-target="15000">0</div><div>+ Leads Delivered</div></div>
+      <div class="trust-item"><i class="fas fa-shield-alt"></i><div class="counter" data-target="98">0</div><div>% Satisfaction</div></div>
+      <div class="trust-item"><i class="fas fa-handshake"></i><div class="counter" data-target="4.9">0</div><div>Rating</div></div>
+    </div>
+  </section>
+
+  <!-- LEAD TYPES -->
+  <section>
+    <div class="container">
+      <h2 style="font-size:2.2rem;">Leads we offer are <span class="gold">verified</span> and exclusive</h2>
+      <p style="color:#bbb;">We provide real-time, exclusive leads across multiple insurance verticals.</p>
+      <div class="lead-grid">
+        <div class="lead-card"><i class="fas fa-car"></i><h4>Auto Insurance</h4><p style="font-size:0.9rem;color:#aaa;">High-intent consumers actively seeking auto insurance.</p></div>
+        <div class="lead-card"><i class="fas fa-home"></i><h4>Home Insurance</h4><p style="font-size:0.9rem;color:#aaa;">Top-notch home insurance leads and calls.</p></div>
+        <div class="lead-card"><i class="fas fa-heartbeat"></i><h4>Final Expense</h4><p style="font-size:0.9rem;color:#aaa;">Consumers interested in final expense insurance.</p></div>
+        <div class="lead-card"><i class="fas fa-hospital"></i><h4>Health Insurance</h4><p style="font-size:0.9rem;color:#aaa;">Genuinely interested health insurance consumers.</p></div>
+        <div class="lead-card"><i class="fas fa-medkit"></i><h4>Medicare</h4><p style="font-size:0.9rem;color:#aaa;">Medicare agents drive success with our leads.</p></div>
+        <div class="lead-card"><i class="fas fa-flag-usa"></i><h4>ACA Insurance</h4><p style="font-size:0.9rem;color:#aaa;">Find the best ACA plan for your needs.</p></div>
+        <div class="lead-card"><i class="fas fa-motorcycle"></i><h4>MVA Insurance</h4><p style="font-size:0.9rem;color:#aaa;">Explore MVA insurance options with our leads.</p></div>
+        <div class="lead-card"><i class="fas fa-tools"></i><h4>Home Warranty</h4><p style="font-size:0.9rem;color:#aaa;">Real-time leads matched to your exact filters.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:#141414;">
+    <div class="container">
+      <h2 style="font-size:2.2rem;">Get Your <span class="gold">Questions</span> Answered</h2>
+      <div class="faq-item"><div class="faq-question">How are your insurance leads generated? <i class="fas fa-plus"></i></div><div class="faq-answer">We employ online marketing, targeted ads, and partnerships with trusted platforms.</div></div>
+      <div class="faq-item"><div class="faq-question">What is the quality of your insurance leads? <i class="fas fa-plus"></i></div><div class="faq-answer">We use multiple data points and filters to deliver leads with higher conversion likelihood.</div></div>
+      <div class="faq-item"><div class="faq-question">How do you ensure exclusivity of leads? <i class="fas fa-plus"></i></div><div class="faq-answer">Once a lead is sold, it is immediately withdrawn from our pool.</div></div>
+      <div class="faq-item"><div class="faq-question">What is your pricing structure? <i class="fas fa-plus"></i></div><div class="faq-answer">We operate on a per-lead basis, with pricing based on type, exclusivity, and volume.</div></div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section>
+    <div class="container"><h2 style="font-size:2rem;">Our <span class="gold">Partners</span></h2>
+      <div class="owl-carousel owl-theme partner-carousel" style="margin-top:30px;">
+        <div class="partner-logo"><i class="fas fa-building"></i> Progressive</div>
+        <div class="partner-logo"><i class="fas fa-shield"></i> Allstate</div>
+        <div class="partner-logo"><i class="fas fa-umbrella"></i> Liberty Mutual</div>
+        <div class="partner-logo"><i class="fas fa-home"></i> State Farm</div>
+        <div class="partner-logo"><i class="fas fa-hand-holding-heart"></i> Nationwide</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section style="background:#141414;">
+    <div class="container">
+      <h2 style="font-size:2.2rem;">Our <span class="gold">Blogs</span></h2>
+      <p style="color:#bbb;">We specialize in market prospecting by providing exclusive, high-quality leads. We believe in sharing knowledge for the benefit of all.</p>
+      <div class="owl-carousel owl-theme blog-carousel" style="margin-top:30px;">
+        <div class="blog-card"><img src="https://placecats.com/400/200?random=2" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 15, 2026 · Insurance</div><h4>5 Lead Generation Trends</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://placecats.com/400/200?random=3" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 10, 2026 · Tips</div><h4>How to Close Final Expense</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://placecats.com/400/200?random=4" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 5, 2026 · Medicare</div><h4>Medicare Advantage Insights</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
-      <div><h4 style="color:#B0963F;">VibeGenX</h4><p style="color:#aaa;">Lead Generation & Live Transfers 24/7.</p><p><i class="fas fa-phone gold"></i> +923130056221<br/><i class="fas fa-envelope gold"></i> info@vibeGenX.com</p></div>
-      <div><h4>Services</h4><a href="leads.html">Auto</a><a href="leads.html">Home</a><a href="leads.html">Final Expense</a></div>
-      <div><h4>Blogs</h4><a href="blog.html">Trends 2026</a><a href="blog.html">Closing tips</a></div>
-      <div><h4>Company</h4><a href="#">Privacy</a><a href="contact.html">Contact</a><a href="pricing.html">Pricing</a></div>
+      <div><h4 style="color:#B0963F;">VibeGenX</h4><p style="color:#aaa;">Lead Generation & Live Transfers 24/7. Exclusive B2C & B2B insurance leads.</p><p><i class="fas fa-phone gold"></i> +923130056221<br/><i class="fas fa-envelope gold"></i> info@vibeGenX.com</p></div>
+      <div><h4>Services</h4><a href="leads.html">Auto</a><a href="leads.html">Home</a><a href="leads.html">Final Expense</a><a href="leads.html">Health</a></div>
+      <div><h4>Blogs</h4><a href="blog.html">Trends 2026</a><a href="blog.html">Closing tips</a><a href="blog.html">Medicare</a></div>
+      <div><h4>Company</h4><a href="#">Privacy Policy</a><a href="#">About</a><a href="contact.html">Contact</a><a href="pricing.html">Lead Pricing</a></div>
     </div>
     <div class="container footer-copy">All Rights Reserved © Copyright 2026 | VibeGenX</div>
   </footer>
 
+  <!-- FLOATING WIDGETS -->
   <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
   <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
 
@@ -176,21 +402,50 @@
     })();
   </script>
 
+  <!-- SCRIPTS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script>
     $(document).ready(function(){
+      $('.partner-carousel').owlCarousel({ loop:true, margin:30, nav:false, responsive:{ 0:{ items:2 }, 768:{ items:4 }, 1000:{ items:5 } } });
+      $('.blog-carousel').owlCarousel({ loop:true, margin:30, nav:false, responsive:{ 0:{ items:1 }, 768:{ items:2 }, 1000:{ items:3 } } });
+
+      $('.faq-item').click(function(){
+        $(this).toggleClass('active').find('.faq-answer').slideToggle();
+        $(this).siblings().removeClass('active').find('.faq-answer').slideUp();
+      });
+
+      $(window).scroll(function(){
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        $('#scrollProgress').css('width', scrolled + '%');
+      });
+
       $('#backTop').click(function(){ $('html,body').animate({scrollTop:0},500); });
+
       $('#darkToggle').click(function(){
         $('body').toggleClass('dark-mode');
         if($('body').hasClass('dark-mode')){ 
           $('body').css({'background':'#0a0a0a','color':'#ddd'});
-          $('.sticky-header,.footer,.lead-detail-card').css('background','#141414');
+          $('.sticky-header,.footer,.lead-card,.faq-item,.blog-card,.trust-grid').css('background','#141414');
           $('#darkToggle i').toggleClass('fa-moon fa-sun');
         } else {
           $('body').css({'background':'#1a1a1a','color':'#e8e0d2'});
-          $('.sticky-header,.footer,.lead-detail-card').css('background','');
+          $('.sticky-header,.footer,.lead-card,.faq-item,.blog-card,.trust-grid').css('background','');
           $('#darkToggle i').toggleClass('fa-moon fa-sun');
         }
+      });
+
+      $('.counter').each(function(){
+        let target = parseInt($(this).data('target'));
+        let count = 0;
+        let interval = setInterval(() => {
+          if(count >= target) { clearInterval(interval); return; }
+          count += Math.ceil(target/60);
+          if(count > target) count = target;
+          $(this).text(count);
+        }, 40);
       });
     });
   </script>
