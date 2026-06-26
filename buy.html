@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Buy Leads · VibeGenX</title>
+  <title>Blog · VibeGenX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
@@ -59,25 +59,23 @@
       font-weight: 600;
     }
 
-    .checkout-grid {
+    .blog-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      grid-template-columns: repeat(3,1fr);
+      gap: 30px;
       margin-top: 30px;
     }
-    .product-selector { background: #1f1f1f; padding: 30px; border-radius: 20px; border: 1px solid #2d2d2d; }
-    .product-selector select, .product-selector input {
-      width: 100%; padding: 12px; background: #2d2d2d; border: 1px solid #3d3d3d; border-radius: 10px; color: #fff; margin: 10px 0;
+    .blog-card {
+      background: #1f1f1f;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #2d2d2d;
+      transition: 0.3s;
     }
-    .checkout-form { background: #1f1f1f; padding: 30px; border-radius: 20px; border: 1px solid #2d2d2d; }
-    .checkout-form input, .checkout-form textarea {
-      width: 100%; padding: 12px; background: #2d2d2d; border: 1px solid #3d3d3d; border-radius: 10px; color: #fff; margin: 8px 0;
-    }
-    .btn-gold {
-      background: #B0963F; color: #1a1a1a; padding: 14px 40px; border: none; border-radius: 50px;
-      font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: 0.3s;
-    }
-    .btn-gold:hover { background: #d4b05e; }
+    .blog-card:hover { border-color: #B0963F; transform: translateY(-5px); }
+    .blog-card img { width: 100%; height: 200px; object-fit: cover; }
+    .blog-content { padding: 20px; }
+    .blog-meta { color: #B0963F; font-size: 0.9rem; }
 
     .footer {
       background: #111;
@@ -104,7 +102,7 @@
     .dark-toggle:hover, .back-top:hover { background: #B0963F; color: #1a1a1a; }
 
     @media (max-width: 768px) {
-      .checkout-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .nav-menu { gap: 12px; font-size: 0.8rem; }
     }
@@ -118,8 +116,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="leads.html">Insurance Leads</a></li>
         <li><a href="pricing.html">Lead Pricing</a></li>
-        <li><a href="buy.html" class="active">Buy Leads</a></li>
-        <li><a href="blog.html">Blogs</a></li>
+        <li><a href="buy.html">Buy Leads</a></li>
+        <li><a href="blog.html" class="active">Blogs</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="#" class="cta-login"><i class="fas fa-lock"></i> CRM Login</a></li>
       </ul>
@@ -128,27 +126,15 @@
 
   <section>
     <div class="container">
-      <h1 style="font-size:3rem;">Buy <span class="gold">Leads</span></h1>
-      <p style="color:#bbb; font-size:1.2rem;">Select lead types, choose quantities, and submit your order.</p>
-      <div class="checkout-grid">
-        <div class="product-selector">
-          <h3>Select Leads</h3>
-          <label>Lead Type</label>
-          <select><option>Auto Insurance</option><option>Home Insurance</option><option>Final Expense</option><option>Health Insurance</option></select>
-          <label>Quantity</label>
-          <input type="number" value="10" min="1" />
-          <p style="margin-top:15px;color:#B0963F;">Price: $12/lead · Total: $120</p>
-          <button class="btn-gold" style="margin-top:15px;">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-        </div>
-        <div class="checkout-form">
-          <h3>Checkout</h3>
-          <input type="text" placeholder="Full Name" />
-          <input type="email" placeholder="Email Address" />
-          <input type="tel" placeholder="Phone Number" />
-          <textarea rows="3" placeholder="Additional Notes"></textarea>
-          <button class="btn-gold" style="width:100%;">Place Order <i class="fas fa-arrow-right"></i></button>
-          <p style="margin-top:15px;font-size:0.9rem;color:#888;"><i class="fas fa-lock gold"></i> Secured via PeachPay</p>
-        </div>
+      <h1 style="font-size:3rem;">Insight <span class="gold">Blogs</span></h1>
+      <p style="color:#bbb; font-size:1.2rem;">Grid of insight articles with featured images, dates, categories, and read-more links.</p>
+      <div class="blog-grid">
+        <div class="blog-card"><img src="https://placecats.com/400/200?random=5" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 15, 2026 · Insurance</div><h3>5 Lead Generation Trends in 2026</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://placecats.com/400/200?random=6" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 10, 2026 · Tips</div><h3>How to Close Final Expense Leads</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://placecats.com/400/200?random=7" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 5, 2026 · Medicare</div><h3>Medicare Advantage: Key Insights</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://placecats.com/400/200?random=8" alt="blog"/><div class="blog-content"><div class="blog-meta">Dec 28, 2025 · ACA</div><h3>ACA Insurance: What You Need to Know</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://placecats.com/400/200?random=9" alt="blog"/><div class="blog-content"><div class="blog-meta">Dec 20, 2025 · Home</div><h3>Home Insurance Lead Conversion Tips</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://placecats.com/400/200?random=10" alt="blog"/><div class="blog-content"><div class="blog-meta">Dec 15, 2025 · Auto</div><h3>Auto Insurance: High-Intent Strategies</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
       </div>
     </div>
   </section>
@@ -157,7 +143,7 @@
     <div class="container footer-grid">
       <div><h4 style="color:#B0963F;">VibeGenX</h4><p style="color:#aaa;">Lead Generation & Live Transfers 24/7.</p><p><i class="fas fa-phone gold"></i> +923130056221</p></div>
       <div><h4>Services</h4><a href="leads.html">Auto</a><a href="leads.html">Home</a></div>
-      <div><h4>Blogs</h4><a href="blog.html">Trends</a></div>
+      <div><h4>Blogs</h4><a href="blog.html">Trends</a><a href="blog.html">Tips</a></div>
       <div><h4>Company</h4><a href="contact.html">Contact</a><a href="pricing.html">Pricing</a></div>
     </div>
     <div class="container footer-copy">All Rights Reserved © Copyright 2026 | VibeGenX</div>
@@ -187,11 +173,11 @@
         $('body').toggleClass('dark-mode');
         if($('body').hasClass('dark-mode')){ 
           $('body').css({'background':'#0a0a0a','color':'#ddd'});
-          $('.sticky-header,.footer,.product-selector,.checkout-form').css('background','#141414');
+          $('.sticky-header,.footer,.blog-card').css('background','#141414');
           $('#darkToggle i').toggleClass('fa-moon fa-sun');
         } else {
           $('body').css({'background':'#1a1a1a','color':'#e8e0d2'});
-          $('.sticky-header,.footer,.product-selector,.checkout-form').css('background','');
+          $('.sticky-header,.footer,.blog-card').css('background','');
           $('#darkToggle i').toggleClass('fa-moon fa-sun');
         }
       });
