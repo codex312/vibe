@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <style>
-    /* ===== GLOBAL STYLES ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: #1a1a1a;
@@ -28,8 +27,6 @@
       font-weight: 700;
     }
     .gold { color: #B0963F; }
-    .bg-gold { background: #B0963F; }
-    .text-gold { color: #B0963F; }
     a { color: #B0963F; text-decoration: none; transition: 0.3s; }
     a:hover { color: #d4b05e; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -98,7 +95,7 @@
       min-height: 90vh;
       display: flex;
       align-items: center;
-      background: radial-gradient(circle at 30% 40%, #2d2d2d, #0f0f0f);
+      background: radial-gradient(circle at 30% 40%, #2d2d2d, #0a0a0a);
       border-bottom: 1px solid #2d2d2d;
     }
     .hero-grid {
@@ -131,6 +128,8 @@
       border-radius: 20px;
       border: 1px solid #B0963F40;
       box-shadow: 0 20px 40px #00000080;
+      height: 400px;
+      object-fit: cover;
     }
     .live-indicator {
       display: inline-flex;
@@ -189,6 +188,7 @@
     }
     .lead-card i { font-size: 2.5rem; color: #B0963F; margin-bottom: 12px; }
     .lead-card h4 { color: #fff; font-weight: 600; }
+    .lead-card p { font-size: 0.9rem; color: #aaa; }
 
     /* ===== FAQ ===== */
     .faq-item {
@@ -225,7 +225,7 @@
       margin: 0 10px;
     }
     .blog-card:hover { border-color: #B0963F; box-shadow: 0 0 30px #b0963f22; }
-    .blog-card img { width: 100%; height: 180px; object-fit: cover; }
+    .blog-card img { width: 100%; height: 200px; object-fit: cover; }
     .blog-content { padding: 18px; }
     .blog-meta { font-size: 0.8rem; color: #B0963F; }
 
@@ -267,6 +267,7 @@
       .trust-grid { flex-direction: column; align-items: center; }
       .footer-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.6rem; }
+      .hero-img img { height: 250px; }
     }
   </style>
 </head>
@@ -304,7 +305,7 @@
         <a href="contact.html" class="btn-gold">Get in Contact <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="hero-img">
-        <img src="https://placecats.com/800/500?random=1" alt="call center team" />
+        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop" alt="Professional call center team" />
       </div>
     </div>
   </section>
@@ -325,14 +326,14 @@
       <h2 style="font-size:2.2rem;">Leads we offer are <span class="gold">verified</span> and exclusive</h2>
       <p style="color:#bbb;">We provide real-time, exclusive leads across multiple insurance verticals.</p>
       <div class="lead-grid">
-        <div class="lead-card"><i class="fas fa-car"></i><h4>Auto Insurance</h4><p style="font-size:0.9rem;color:#aaa;">High-intent consumers actively seeking auto insurance.</p></div>
-        <div class="lead-card"><i class="fas fa-home"></i><h4>Home Insurance</h4><p style="font-size:0.9rem;color:#aaa;">Top-notch home insurance leads and calls.</p></div>
-        <div class="lead-card"><i class="fas fa-heartbeat"></i><h4>Final Expense</h4><p style="font-size:0.9rem;color:#aaa;">Consumers interested in final expense insurance.</p></div>
-        <div class="lead-card"><i class="fas fa-hospital"></i><h4>Health Insurance</h4><p style="font-size:0.9rem;color:#aaa;">Genuinely interested health insurance consumers.</p></div>
-        <div class="lead-card"><i class="fas fa-medkit"></i><h4>Medicare</h4><p style="font-size:0.9rem;color:#aaa;">Medicare agents drive success with our leads.</p></div>
-        <div class="lead-card"><i class="fas fa-flag-usa"></i><h4>ACA Insurance</h4><p style="font-size:0.9rem;color:#aaa;">Find the best ACA plan for your needs.</p></div>
-        <div class="lead-card"><i class="fas fa-motorcycle"></i><h4>MVA Insurance</h4><p style="font-size:0.9rem;color:#aaa;">Explore MVA insurance options with our leads.</p></div>
-        <div class="lead-card"><i class="fas fa-tools"></i><h4>Home Warranty</h4><p style="font-size:0.9rem;color:#aaa;">Real-time leads matched to your exact filters.</p></div>
+        <div class="lead-card"><i class="fas fa-car"></i><h4>Auto Insurance</h4><p>High-intent consumers actively seeking auto insurance.</p></div>
+        <div class="lead-card"><i class="fas fa-home"></i><h4>Home Insurance</h4><p>Top-notch home insurance leads and calls.</p></div>
+        <div class="lead-card"><i class="fas fa-heartbeat"></i><h4>Final Expense</h4><p>Consumers interested in final expense insurance.</p></div>
+        <div class="lead-card"><i class="fas fa-hospital"></i><h4>Health Insurance</h4><p>Genuinely interested health insurance consumers.</p></div>
+        <div class="lead-card"><i class="fas fa-medkit"></i><h4>Medicare</h4><p>Medicare agents drive success with our leads.</p></div>
+        <div class="lead-card"><i class="fas fa-flag-usa"></i><h4>ACA Insurance</h4><p>Find the best ACA plan for your needs.</p></div>
+        <div class="lead-card"><i class="fas fa-motorcycle"></i><h4>MVA Insurance</h4><p>Explore MVA insurance options with our leads.</p></div>
+        <div class="lead-card"><i class="fas fa-tools"></i><h4>Home Warranty</h4><p>Real-time leads matched to your exact filters.</p></div>
       </div>
     </div>
   </section>
@@ -367,9 +368,9 @@
       <h2 style="font-size:2.2rem;">Our <span class="gold">Blogs</span></h2>
       <p style="color:#bbb;">We specialize in market prospecting by providing exclusive, high-quality leads. We believe in sharing knowledge for the benefit of all.</p>
       <div class="owl-carousel owl-theme blog-carousel" style="margin-top:30px;">
-        <div class="blog-card"><img src="https://placecats.com/400/200?random=2" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 15, 2026 · Insurance</div><h4>5 Lead Generation Trends</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
-        <div class="blog-card"><img src="https://placecats.com/400/200?random=3" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 10, 2026 · Tips</div><h4>How to Close Final Expense</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
-        <div class="blog-card"><img src="https://placecats.com/400/200?random=4" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 5, 2026 · Medicare</div><h4>Medicare Advantage Insights</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://images.unsplash.com/photo-1432889821006-c7a86bc75dd8?w=400&h=200&fit=crop" alt="Insurance blog"/><div class="blog-content"><div class="blog-meta">Jan 15, 2026 · Insurance</div><h4>5 Lead Generation Trends</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop" alt="Business tips"/><div class="blog-content"><div class="blog-meta">Jan 10, 2026 · Tips</div><h4>How to Close Final Expense</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
+        <div class="blog-card"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=200&fit=crop" alt="Healthcare"/><div class="blog-content"><div class="blog-meta">Jan 5, 2026 · Medicare</div><h4>Medicare Advantage Insights</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
       </div>
     </div>
   </section>
@@ -389,7 +390,7 @@
   <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
   <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
 
-  <!-- Tawk.to Live Chat Script -->
+  <!-- Tawk.to Live Chat -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -402,7 +403,6 @@
     })();
   </script>
 
-  <!-- SCRIPTS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script>
