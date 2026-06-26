@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orders · VibeGenX CRM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    :root {
+      --gold: #B0963F;
+      --bg-dark: #0f0f0f;
+      --bg-card: #1a1a1a;
+      --bg-sidebar: #141414;
+      --text-primary: #e8e0d2;
+      --text-secondary: #888;
+      --border-color: #2a2a2a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg-dark); color: var(--text-primary); font-family: 'Roboto', sans-serif; display: flex; min-height: 100vh; }
+    a { text-decoration: none; color: var(--gold); }
+    a:hover { color: #d4b05e; }
+
+    /* Sidebar (same as leads-crm) */
+    .sidebar {
+      width: 260px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border-color);
+      min-height: 100vh;
+      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      overflow-y: auto;
+      z-index: 100;
+      transition: 0.3s;
+    }
+    .sidebar-brand {
+      text-align: center;
+      padding: 10px 20px 25px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 20px;
+    }
+    .sidebar-brand h2 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--gold); }
+    .sidebar-brand h2 span { color: #fff; }
+    .sidebar-brand p { color: var(--text-secondary); font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; }
+    .sidebar-menu { list-style: none; padding: 0 12px; }
+    .sidebar-menu li { margin-bottom: 4px; }
+    .sidebar-menu li a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      color: #aaa;
+      transition: 0.3s;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .sidebar-menu li a i { width: 20px; font-size: 1.1rem; color: var(--text-secondary); }
+    .sidebar-menu li a:hover { background: #2a2a2a; color: #fff; }
+    .sidebar-menu li a:hover i { color: var(--gold); }
+    .sidebar-menu li a.active { background: var(--gold); color: #1a1a1a; }
+    .sidebar-menu li a.active i { color: #1a1a1a; }
+    .sidebar-menu .menu-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 15px 18px 8px;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .main-content { margin-left: 260px; flex: 1; padding: 20px 30px 30px; }
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .top-header h1 { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 700; }
+    .top-header h1 span { color: var(--gold); }
+    .top-header-right { display: flex; align-items: center; gap: 20px; }
+    .top-header-right .date { color: var(--text-secondary); font-size: 0.85rem; }
+    .user-dropdown {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      padding: 6px 14px 6px 6px;
+      border-radius: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      transition: 0.3s;
+    }
+    .user-dropdown:hover { border-color: var(--gold); }
+    .user-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid var(--border-color);
+      margin-top: 25px;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .panel-header h3 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 600; }
+    .btn-sm {
+      padding: 8px 18px;
+      border-radius: 30px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-gold { background: var(--gold); color: #1a1a1a; }
+    .btn-gold:hover { background: #d4b05e; }
+    .btn-outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
+    .btn-outline:hover { background: var(--gold); color: #1a1a1a; }
+
+    table { width: 100%; border-collapse: collapse; }
+    table th { text-align: left; color: var(--text-secondary); font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color); }
+    table td { padding: 12px 0; border-bottom: 1px solid #1f1f1f; font-size: 0.85rem; }
+    table tr:hover td { color: #fff; }
+    .status-badge {
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+    .status-badge.completed { background: rgba(40,167,69,0.2); color: #28a745; }
+    .status-badge.pending { background: rgba(255,193,7,0.2); color: #ffc107; }
+    .status-badge.processing { background: rgba(23,162,184,0.2); color: #17a2b8; }
+    .status-badge.cancelled { background: rgba(220,53,69,0.2); color: #dc3545; }
+
+    .footer-bar { text-align: center; padding: 25px 0 10px; color: var(--text-secondary); font-size: 0.8rem; border-top: 1px solid var(--border-color); margin-top: 30px; }
+    .dark-toggle, .back-top {
+      position: fixed; right: 30px; background: #2d2d2d; color: var(--gold);
+      width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; box-shadow: 0 4px 15px #000; z-index: 999; border: 1px solid #444;
+      cursor: pointer; transition: 0.2s;
+    }
+    .dark-toggle { bottom: 110px; }
+    .back-top { bottom: 170px; }
+    .dark-toggle:hover, .back-top:hover { background: var(--gold); color: #1a1a1a; }
+
+    @media (max-width: 768px) {
+      .sidebar { width: 70px; padding: 15px 0; }
+      .sidebar-brand h2 { font-size: 1rem; }
+      .sidebar-brand p { display: none; }
+      .sidebar-menu li a { padding: 10px 14px; font-size: 0; }
+      .sidebar-menu li a i { font-size: 1.3rem; }
+      .sidebar-menu .menu-label { display: none; }
+      .main-content { margin-left: 70px; padding: 15px; }
+      .top-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <h2>Vibe<span>GenX</span></h2>
+      <p>Lead Generation CRM</p>
+    </div>
+    <ul class="sidebar-menu">
+      <li class="menu-label">Main</li>
+      <li><a href="crm-dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="leads-crm.html"><i class="fas fa-users"></i> Leads</a></li>
+      <li><a href="orders-crm.html" class="active"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li><a href="pricing-crm.html"><i class="fas fa-tags"></i> Pricing</a></li>
+      <li class="menu-label">Management</li>
+      <li><a href="clients-crm.html"><i class="fas fa-user-circle"></i> Clients</a></li>
+      <li><a href="analytics-crm.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+      <li><a href="invoices-crm.html"><i class="fas fa-file-invoice"></i> Invoices</a></li>
+      <li class="menu-label">System</li>
+      <li><a href="settings-crm.html"><i class="fas fa-cog"></i> Settings</a></li>
+      <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+    <header class="top-header">
+      <div>
+        <h1>Order <span>Management</span></h1>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">Track and manage all customer orders.</p>
+      </div>
+      <div class="top-header-right">
+        <span class="date"><i class="far fa-calendar-alt" style="color:var(--gold);"></i> <span id="currentDate"></span></span>
+        <div class="user-dropdown">
+          <div class="user-avatar">JD</div>
+          <div><div style="font-size:0.85rem;font-weight:600;">John Doe</div><div style="font-size:0.7rem;color:var(--text-secondary);">Administrator</div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="panel">
+      <div class="panel-header">
+        <h3><i class="fas fa-list" style="color:var(--gold); margin-right:8px;"></i> All Orders</h3>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn-sm btn-gold"><i class="fas fa-plus"></i> New Order</button>
+          <button class="btn-sm btn-outline"><i class="fas fa-filter"></i> Filter</button>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Client</th>
+              <th>Lead Type</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span style="color:var(--gold);">#ORD-1024</span></td>
+              <td>Michael Johnson</td>
+              <td>Auto Insurance</td>
+              <td>25</td>
+              <td>$300</td>
+              <td><span class="status-badge completed">Completed</span></td>
+              <td><a href="#" style="color:var(--gold);"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--gold);">#ORD-1023</span></td>
+              <td>Sarah Williams</td>
+              <td>Home Insurance</td>
+              <td>15</td>
+              <td>$225</td>
+              <td><span class="status-badge processing">Processing</span></td>
+              <td><a href="#" style="color:var(--gold);"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--gold);">#ORD-1022</span></td>
+              <td>Robert Davis</td>
+              <td>Final Expense</td>
+              <td>30</td>
+              <td>$540</td>
+              <td><span class="status-badge pending">Pending</span></td>
+              <td><a href="#" style="color:var(--gold);"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--gold);">#ORD-1021</span></td>
+              <td>Emily Brown</td>
+              <td>Health Insurance</td>
+              <td>10</td>
+              <td>$180</td>
+              <td><span class="status-badge completed">Completed</span></td>
+              <td><a href="#" style="color:var(--gold);"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td><span style="color:var(--gold);">#ORD-1020</span></td>
+              <td>James Wilson</td>
+              <td>Medicare</td>
+              <td>20</td>
+              <td>$360</td>
+              <td><span class="status-badge cancelled">Cancelled</span></td>
+              <td><a href="#" style="color:var(--gold);"><i class="fas fa-eye"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      All Rights Reserved © Copyright 2026 | <span style="color:var(--gold);">VibeGenX</span> CRM
+    </div>
+  </main>
+
+  <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
+  <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
+
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6a3ee7b1eafe991d4bf9fbed/1js2ri48h';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+  <script>
+    document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+    document.getElementById('darkToggle').addEventListener('click', function() {
+      const isLight = document.body.classList.toggle('light-mode');
+      document.documentElement.style.setProperty('--bg-dark', isLight ? '#f5f0e8' : '#0f0f0f');
+      document.documentElement.style.setProperty('--bg-card', isLight ? '#ffffff' : '#1a1a1a');
+      document.documentElement.style.setProperty('--bg-sidebar', isLight ? '#f0ebe0' : '#141414');
+      document.documentElement.style.setProperty('--text-primary', isLight ? '#1a1a1a' : '#e8e0d2');
+      document.documentElement.style.setProperty('--text-secondary', isLight ? '#666' : '#888');
+      document.documentElement.style.setProperty('--border-color', isLight ? '#ddd' : '#2a2a2a');
+      this.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+    document.getElementById('backTop').addEventListener('click', function() { window.scrollTo({ top:0, behavior:'smooth' }); });
+  </script>
+</body>
+</html>
