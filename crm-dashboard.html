@@ -4,11 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VibeGenX CRM · Dashboard</title>
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
     :root {
@@ -193,7 +191,6 @@
       background: rgba(40,167,69,0.15);
       color: #28a745;
     }
-    .stat-card .stat-change.down { background: rgba(220,53,69,0.15); color: #dc3545; }
     .stat-card .stat-number {
       font-size: 2.2rem;
       font-weight: 800;
@@ -596,52 +593,18 @@
   </script>
 
   <script>
-    // ===== SET CURRENT DATE =====
-    const now = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
-
-    // ===== DARK MODE =====
-    let darkMode = false;
+    document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
     document.getElementById('darkToggle').addEventListener('click', function() {
-      darkMode = !darkMode;
-      if(darkMode) {
-        document.documentElement.style.setProperty('--bg-dark', '#f5f0e8');
-        document.documentElement.style.setProperty('--bg-card', '#ffffff');
-        document.documentElement.style.setProperty('--bg-sidebar', '#f0ebe0');
-        document.documentElement.style.setProperty('--text-primary', '#1a1a1a');
-        document.documentElement.style.setProperty('--text-secondary', '#666');
-        document.documentElement.style.setProperty('--border-color', '#ddd');
-        document.documentElement.style.setProperty('--shadow', '0 8px 32px rgba(0,0,0,0.1)');
-        document.body.style.background = '#f5f0e8';
-        document.querySelectorAll('.stat-card, .panel, .user-dropdown, .sidebar').forEach(el => {
-          el.style.background = '#ffffff';
-        });
-        document.querySelector('.sidebar').style.background = '#f0ebe0';
-        document.querySelectorAll('.quick-btn').forEach(el => el.style.background = '#f5f0e8');
-        this.innerHTML = '<i class="fas fa-sun"></i>';
-      } else {
-        document.documentElement.style.setProperty('--bg-dark', '#0f0f0f');
-        document.documentElement.style.setProperty('--bg-card', '#1a1a1a');
-        document.documentElement.style.setProperty('--bg-sidebar', '#141414');
-        document.documentElement.style.setProperty('--text-primary', '#e8e0d2');
-        document.documentElement.style.setProperty('--text-secondary', '#888');
-        document.documentElement.style.setProperty('--border-color', '#2a2a2a');
-        document.documentElement.style.setProperty('--shadow', '0 8px 32px rgba(0,0,0,0.6)');
-        document.body.style.background = '';
-        document.querySelectorAll('.stat-card, .panel, .user-dropdown, .sidebar').forEach(el => {
-          el.style.background = '';
-        });
-        document.querySelector('.sidebar').style.background = '';
-        document.querySelectorAll('.quick-btn').forEach(el => el.style.background = '');
-        this.innerHTML = '<i class="fas fa-moon"></i>';
-      }
+      const isLight = document.body.classList.toggle('light-mode');
+      document.documentElement.style.setProperty('--bg-dark', isLight ? '#f5f0e8' : '#0f0f0f');
+      document.documentElement.style.setProperty('--bg-card', isLight ? '#ffffff' : '#1a1a1a');
+      document.documentElement.style.setProperty('--bg-sidebar', isLight ? '#f0ebe0' : '#141414');
+      document.documentElement.style.setProperty('--text-primary', isLight ? '#1a1a1a' : '#e8e0d2');
+      document.documentElement.style.setProperty('--text-secondary', isLight ? '#666' : '#888');
+      document.documentElement.style.setProperty('--border-color', isLight ? '#ddd' : '#2a2a2a');
+      this.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     });
-
-    // ===== BACK TO TOP =====
-    document.getElementById('backTop').addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    document.getElementById('backTop').addEventListener('click', function() { window.scrollTo({ top:0, behavior:'smooth' }); });
   </script>
 
 </body>
