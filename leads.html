@@ -73,20 +73,50 @@
       border-radius: 20px;
       border: 1px solid #2d2d2d;
       transition: 0.3s;
+      display: flex;
+      flex-direction: column;
     }
     .lead-detail-card:hover { border-color: #B0963F; box-shadow: 0 0 30px #b0963f22; }
-    .lead-detail-card i { font-size: 2.8rem; color: #B0963F; margin-bottom: 15px; }
+    .lead-detail-card .lead-icon { font-size: 2.8rem; color: #B0963F; margin-bottom: 15px; }
     .lead-detail-card h3 { color: #fff; }
+    .lead-detail-card p { color: #aaa; margin: 10px 0 15px; flex: 1; }
+    .lead-detail-card .lead-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #2d2d2d;
+    }
     .btn-sm {
       background: #B0963F;
       color: #1a1a1a;
       padding: 8px 25px;
       border-radius: 30px;
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 5px;
       font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
     }
     .btn-sm:hover { background: #d4b05e; color: #111; }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #B0963F;
+      color: #B0963F;
+      padding: 8px 25px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .btn-outline:hover { background: #B0963F; color: #1a1a1a; }
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
 
     .footer {
       background: #111;
@@ -102,17 +132,11 @@
     .footer a:hover { color: #B0963F; }
     .footer-copy { border-top: 1px solid #2d2d2d; padding-top: 25px; margin-top: 30px; text-align: center; color: #777; }
 
-    .floating-whatsapp {
-      position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff;
-      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem; box-shadow: 0 8px 25px #00000080; z-index: 999;
-    }
-    .floating-whatsapp:hover { transform: scale(1.08); background: #20b85f; color: #fff; }
     .dark-toggle, .back-top {
       position: fixed; right: 30px; background: #2d2d2d; color: #B0963F;
       width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem; box-shadow: 0 4px 15px #000; z-index: 999; border: 1px solid #444;
-      cursor: pointer;
+      cursor: pointer; transition: 0.2s;
     }
     .dark-toggle { bottom: 110px; }
     .back-top { bottom: 170px; }
@@ -136,7 +160,7 @@
         <li><a href="buy.html">Buy Leads</a></li>
         <li><a href="blog.html">Blogs</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="#" class="cta-login"><i class="fas fa-lock"></i> CRM Login</a></li>
+        <li><a href="login.html" class="cta-login"><i class="fas fa-lock"></i> CRM Login</a></li>
       </ul>
     </div>
   </header>
@@ -146,12 +170,66 @@
       <h1 style="font-size:3rem;">Insurance <span class="gold">Leads</span></h1>
       <p style="color:#bbb; font-size:1.2rem;">Detailed breakdown of each lead type with benefits and CTAs.</p>
       <div class="lead-detail-grid">
-        <div class="lead-detail-card"><i class="fas fa-car"></i><h3>Auto Insurance Leads</h3><p>High-intent consumers actively seeking auto insurance. Verified and exclusive.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-home"></i><h3>Home Insurance Leads</h3><p>Top-notch home insurance leads and calls. Real-time, high conversion.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-heartbeat"></i><h3>Final Expense Insurance</h3><p>Consumers interested in final expense insurance. High-intent, exclusive.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-hospital"></i><h3>Health Insurance Leads</h3><p>Genuinely interested health insurance consumers. Verified and fresh.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-medkit"></i><h3>Medicare Insurance Leads</h3><p>Medicare agents drive success with our leads. Exclusive, high-quality.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
-        <div class="lead-detail-card"><i class="fas fa-flag-usa"></i><h3>ACA Insurance Leads</h3><p>Find the best ACA plan for your needs. Real-time, targeted leads.</p><a href="buy.html" class="btn-sm">Buy Now</a> <a href="contact.html" class="btn-sm" style="background:transparent;border:1px solid #B0963F;color:#B0963F;">Contact</a></div>
+        <div class="lead-detail-card">
+          <img class="lead-img" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&h=200&fit=crop" alt="Auto Insurance" />
+          <div class="lead-icon"><i class="fas fa-car"></i></div>
+          <h3>Auto Insurance Leads</h3>
+          <p>High-intent consumers actively seeking auto insurance. Verified and exclusive. Real-time delivery with high conversion rates.</p>
+          <div class="btn-group">
+            <a href="buy.html" class="btn-sm">Buy Now</a>
+            <a href="contact.html" class="btn-outline">Contact</a>
+          </div>
+        </div>
+        <div class="lead-detail-card">
+          <img class="lead-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=200&fit=crop" alt="Home Insurance" />
+          <div class="lead-icon"><i class="fas fa-home"></i></div>
+          <h3>Home Insurance Leads</h3>
+          <p>Top-notch home insurance leads and calls. Real-time, high conversion. Homeowners actively looking for coverage.</p>
+          <div class="btn-group">
+            <a href="buy.html" class="btn-sm">Buy Now</a>
+            <a href="contact.html" class="btn-outline">Contact</a>
+          </div>
+        </div>
+        <div class="lead-detail-card">
+          <img class="lead-img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=200&fit=crop" alt="Health Insurance" />
+          <div class="lead-icon"><i class="fas fa-heartbeat"></i></div>
+          <h3>Final Expense Insurance</h3>
+          <p>Consumers interested in final expense insurance. High-intent, exclusive leads with verified contact information.</p>
+          <div class="btn-group">
+            <a href="buy.html" class="btn-sm">Buy Now</a>
+            <a href="contact.html" class="btn-outline">Contact</a>
+          </div>
+        </div>
+        <div class="lead-detail-card">
+          <img class="lead-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=200&fit=crop" alt="Health Insurance" />
+          <div class="lead-icon"><i class="fas fa-hospital"></i></div>
+          <h3>Health Insurance Leads</h3>
+          <p>Genuinely interested health insurance consumers. Verified and fresh leads delivered in real-time to your CRM.</p>
+          <div class="btn-group">
+            <a href="buy.html" class="btn-sm">Buy Now</a>
+            <a href="contact.html" class="btn-outline">Contact</a>
+          </div>
+        </div>
+        <div class="lead-detail-card">
+          <img class="lead-img" src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=400&h=200&fit=crop" alt="Medicare" />
+          <div class="lead-icon"><i class="fas fa-medkit"></i></div>
+          <h3>Medicare Insurance Leads</h3>
+          <p>Medicare agents drive success with our leads. Exclusive, high-quality leads with seniors actively seeking Medicare plans.</p>
+          <div class="btn-group">
+            <a href="buy.html" class="btn-sm">Buy Now</a>
+            <a href="contact.html" class="btn-outline">Contact</a>
+          </div>
+        </div>
+        <div class="lead-detail-card">
+          <img class="lead-img" src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&h=200&fit=crop" alt="ACA Insurance" />
+          <div class="lead-icon"><i class="fas fa-flag-usa"></i></div>
+          <h3>ACA Insurance Leads</h3>
+          <p>Find the best ACA plan for your needs. Real-time, targeted leads for the Affordable Care Act marketplace.</p>
+          <div class="btn-group">
+            <a href="buy.html" class="btn-sm">Buy Now</a>
+            <a href="contact.html" class="btn-outline">Contact</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -166,11 +244,9 @@
     <div class="container footer-copy">All Rights Reserved © Copyright 2026 | VibeGenX</div>
   </footer>
 
-  <a href="https://wa.me/923130056221" class="floating-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
   <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
   <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
 
-  <!-- Tawk.to Live Chat Script -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
