@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRM Login · VibeGenX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a1a;
+      color: #e8e0d2;
+      font-family: 'Roboto', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 40%, #2d2d2d, #0a0a0a);
+    }
+    .login-wrapper {
+      width: 100%;
+      max-width: 440px;
+      padding: 20px;
+    }
+    .login-card {
+      background: #1f1f1f;
+      border-radius: 30px;
+      padding: 50px 40px;
+      border: 1px solid #2d2d2d;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      transition: 0.3s;
+    }
+    .login-card:hover {
+      border-color: #B0963F40;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(176,150,63,0.05);
+    }
+    .login-logo {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    .login-logo h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #B0963F;
+      letter-spacing: 1px;
+    }
+    .login-logo h1 span { color: #fff; }
+    .login-logo p {
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 5px;
+      letter-spacing: 1px;
+    }
+    .login-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #B0963F, transparent);
+      margin: 0 0 30px 0;
+      opacity: 0.4;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #bbb;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .form-group label i {
+      color: #B0963F;
+      margin-right: 8px;
+      width: 18px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 14px 18px;
+      background: #2d2d2d;
+      border: 1px solid #3d3d3d;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 1rem;
+      transition: 0.3s;
+      font-family: 'Roboto', sans-serif;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: #B0963F;
+      box-shadow: 0 0 20px rgba(176,150,63,0.15);
+    }
+    .form-group input::placeholder {
+      color: #666;
+    }
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0 25px 0;
+      font-size: 0.85rem;
+    }
+    .form-options label {
+      color: #888;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-options label input[type="checkbox"] {
+      accent-color: #B0963F;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .form-options a {
+      color: #B0963F;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .form-options a:hover {
+      color: #d4b05e;
+      text-decoration: underline;
+    }
+    .btn-login {
+      width: 100%;
+      padding: 16px;
+      background: #B0963F;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 30px rgba(176,150,63,0.2);
+    }
+    .btn-login:hover {
+      background: #d4b05e;
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(176,150,63,0.3);
+    }
+    .btn-login i {
+      margin-right: 10px;
+    }
+    .login-footer {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .login-footer a {
+      color: #B0963F;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .login-footer a:hover {
+      text-decoration: underline;
+    }
+    .back-home {
+      display: inline-block;
+      margin-top: 15px;
+      color: #888;
+      font-size: 0.85rem;
+      transition: 0.3s;
+    }
+    .back-home:hover {
+      color: #B0963F;
+    }
+    .back-home i {
+      margin-right: 8px;
+    }
+    .login-badge {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .login-badge span {
+      background: #2d2d2d;
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      color: #B0963F;
+      border: 1px solid #B0963F30;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .password-hint {
+      text-align: right;
+      font-size: 0.75rem;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    /* Dark mode toggle inside login */
+    .dark-toggle {
+      position: fixed;
+      right: 30px;
+      bottom: 110px;
+      background: #2d2d2d;
+      color: #B0963F;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 15px #000;
+      z-index: 999;
+      border: 1px solid #444;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .dark-toggle:hover {
+      background: #B0963F;
+      color: #1a1a1a;
+    }
+    .back-top {
+      position: fixed;
+      right: 30px;
+      bottom: 170px;
+      background: #2d2d2d;
+      color: #B0963F;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 15px #000;
+      z-index: 999;
+      border: 1px solid #444;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .back-top:hover {
+      background: #B0963F;
+      color: #1a1a1a;
+    }
+
+    /* Tawk.to floating chat - keep it */
+    @media (max-width: 480px) {
+      .login-card { padding: 30px 20px; }
+      .login-logo h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Card -->
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-logo">
+        <h1>Vibe<span>GenX</span></h1>
+        <p>Lead Generation &amp; Live Transfers 24/7</p>
+      </div>
+      <div class="login-divider"></div>
+      <div class="login-badge">
+        <span><i class="fas fa-lock"></i> Secure CRM Portal</span>
+      </div>
+
+      <form id="loginForm" onsubmit="return handleLogin(event)">
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required />
+          <div class="password-hint">Minimum 8 characters</div>
+        </div>
+        <div class="form-options">
+          <label><input type="checkbox" /> Remember Me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn-login">
+          <i class="fas fa-sign-in-alt"></i> Login to Dashboard
+        </button>
+      </form>
+
+      <div class="login-footer">
+        <p>Don't have an account? <a href="#">Contact Support</a></p>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Widgets -->
+  <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
+  <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
+
+  <!-- Tawk.to Live Chat Script -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6a3ee7b1eafe991d4bf9fbed/1js2ri48h';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+  <script>
+    // Dark mode toggle
+    document.getElementById('darkToggle').addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')) {
+        document.body.style.background = '#0a0a0a';
+        document.querySelector('.login-card').style.background = '#141414';
+        document.querySelectorAll('.form-group input').forEach(el => {
+          el.style.background = '#1f1f1f';
+        });
+        this.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        document.body.style.background = '';
+        document.querySelector('.login-card').style.background = '';
+        document.querySelectorAll('.form-group input').forEach(el => {
+          el.style.background = '';
+        });
+        this.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+    });
+
+    // Back to top
+    document.getElementById('backTop').addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Login form handler (demo)
+    function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      if(email && password.length >= 8) {
+        // Show success message
+        const btn = document.querySelector('.btn-login');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+        btn.style.opacity = '0.7';
+        
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-check"></i> Welcome Back!';
+          btn.style.background = '#28a745';
+          btn.style.color = '#fff';
+          
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.style.color = '';
+            btn.style.opacity = '1';
+            alert('✅ Login successful! Redirecting to dashboard...');
+            window.location.href = 'index.html';
+          }, 1500);
+        }, 1500);
+      } else {
+        alert('⚠️ Please enter a valid email and password (min 8 characters).');
+      }
+      return false;
+    }
+
+    // Enter key support
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Enter') {
+        const form = document.getElementById('loginForm');
+        if(form) {
+          form.dispatchEvent(new Event('submit'));
+        }
+      }
+    });
+  </script>
+</body>
+</html>
