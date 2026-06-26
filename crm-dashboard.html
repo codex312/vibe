@@ -11,7 +11,6 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    /* ===== ROOT VARIABLES ===== */
     :root {
       --gold: #B0963F;
       --gold-dark: #8a7230;
@@ -24,7 +23,6 @@
       --border-color: #2a2a2a;
       --shadow: 0 8px 32px rgba(0,0,0,0.6);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: var(--bg-dark);
@@ -155,14 +153,6 @@
       color: #1a1a1a;
       font-weight: 700;
       font-size: 0.9rem;
-    }
-    .user-dropdown .user-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-    .user-dropdown .user-role {
-      font-size: 0.7rem;
-      color: var(--text-secondary);
     }
 
     /* ===== STATS CARDS ===== */
@@ -351,10 +341,7 @@
       .quick-grid { grid-template-columns: repeat(2,1fr); }
     }
     @media (max-width: 768px) {
-      .sidebar {
-        width: 70px;
-        padding: 15px 0;
-      }
+      .sidebar { width: 70px; padding: 15px 0; }
       .sidebar-brand h2 { font-size: 1rem; }
       .sidebar-brand p { display: none; }
       .sidebar-menu li a { padding: 10px 14px; font-size: 0; }
@@ -382,16 +369,16 @@
     </div>
     <ul class="sidebar-menu">
       <li class="menu-label">Main</li>
-      <li><a href="#" class="active"><i class="fas fa-th-large"></i> Dashboard</a></li>
-      <li><a href="#"><i class="fas fa-users"></i> Leads</a></li>
-      <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
-      <li><a href="#"><i class="fas fa-tags"></i> Pricing</a></li>
+      <li><a href="crm-dashboard.html" class="active"><i class="fas fa-th-large"></i> Dashboard</a></li>
+      <li><a href="leads-crm.html"><i class="fas fa-users"></i> Leads</a></li>
+      <li><a href="orders-crm.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+      <li><a href="pricing-crm.html"><i class="fas fa-tags"></i> Pricing</a></li>
       <li class="menu-label">Management</li>
-      <li><a href="#"><i class="fas fa-user-circle"></i> Clients</a></li>
-      <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
-      <li><a href="#"><i class="fas fa-file-invoice"></i> Invoices</a></li>
+      <li><a href="clients-crm.html"><i class="fas fa-user-circle"></i> Clients</a></li>
+      <li><a href="analytics-crm.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+      <li><a href="invoices-crm.html"><i class="fas fa-file-invoice"></i> Invoices</a></li>
       <li class="menu-label">System</li>
-      <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+      <li><a href="settings-crm.html"><i class="fas fa-cog"></i> Settings</a></li>
       <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
   </aside>
@@ -410,8 +397,8 @@
         <div class="user-dropdown">
           <div class="user-avatar">JD</div>
           <div>
-            <div class="user-name">John Doe</div>
-            <div class="user-role">Administrator</div>
+            <div class="user-name" style="font-size:0.85rem;font-weight:600;">John Doe</div>
+            <div style="font-size:0.7rem;color:var(--text-secondary);">Administrator</div>
           </div>
           <i class="fas fa-chevron-down" style="color:var(--text-secondary); font-size:0.6rem;"></i>
         </div>
@@ -461,7 +448,7 @@
       <div class="panel">
         <div class="panel-header">
           <h3><i class="fas fa-clock" style="color:var(--gold); margin-right:8px;"></i> Recent Orders</h3>
-          <a href="#">View All <i class="fas fa-arrow-right"></i></a>
+          <a href="orders-crm.html">View All <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="table-responsive">
           <table>
@@ -519,7 +506,7 @@
       <div class="panel">
         <div class="panel-header">
           <h3><i class="fas fa-chart-simple" style="color:var(--gold); margin-right:8px;"></i> Lead Performance</h3>
-          <a href="leads.html">Details <i class="fas fa-arrow-right"></i></a>
+          <a href="leads-crm.html">Details <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="perf-item">
           <span class="name">Auto Insurance</span>
@@ -569,11 +556,11 @@
           <i class="fas fa-shopping-cart"></i>
           <span>Buy Leads</span>
         </a>
-        <a href="leads.html" class="quick-btn">
+        <a href="leads-crm.html" class="quick-btn">
           <i class="fas fa-list"></i>
           <span>View Leads</span>
         </a>
-        <a href="pricing.html" class="quick-btn">
+        <a href="pricing-crm.html" class="quick-btn">
           <i class="fas fa-tags"></i>
           <span>Pricing</span>
         </a>
