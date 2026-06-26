@@ -6,187 +6,305 @@
   <title>Blog · VibeGenX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    :root {
+      --gold: #B0963F;
+      --gold-light: #d4b05e;
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #141414;
+      --bg-card: #1a1a1a;
+      --text-primary: #e8e0d2;
+      --text-secondary: #999;
+      --text-muted: #666;
+      --border-color: #2a2a2a;
+      --shadow: 0 10px 40px rgba(0,0,0,0.6);
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius: 16px;
+    }
+    .light-mode {
+      --bg-primary: #f5f0e8;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555;
+      --text-muted: #888;
+      --border-color: #ddd;
+      --shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a1a; color: #e8e0d2; font-family: 'Roboto', sans-serif; line-height: 1.6; }
-    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 700; }
-    .gold { color: #B0963F; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    section { padding: 70px 0; }
-    a { color: #B0963F; text-decoration: none; }
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      transition: var(--transition);
+    }
+    a { text-decoration: none; color: var(--gold); transition: var(--transition); }
+    a:hover { color: var(--gold-light); }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    .gold { color: var(--gold); }
 
-    .sticky-header {
-      background: #1a1a1aee;
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid #2d2d2d;
+    /* ===== HEADER ===== */
+    .header {
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
       z-index: 999;
       padding: 10px 0;
+      transition: var(--transition);
     }
+    .light-mode .header { background: rgba(245,240,232,0.95); }
     .nav-wrapper {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 10px;
     }
     .logo {
       font-size: 1.9rem;
-      font-weight: 800;
-      color: #B0963F;
+      font-weight: 900;
+      color: var(--gold);
       font-family: 'Poppins', sans-serif;
     }
-    .logo span { color: #fff; }
+    .logo span { color: #fff; transition: var(--transition); }
+    .light-mode .logo span { color: #1a1a1a; }
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 20px;
       list-style: none;
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       flex-wrap: wrap;
     }
-    .nav-menu a { color: #ddd; }
-    .nav-menu a:hover { color: #B0963F; }
-    .nav-menu a.active { color: #B0963F; border-bottom: 2px solid #B0963F; }
+    .nav-menu a { color: var(--text-secondary); transition: var(--transition); }
+    .nav-menu a:hover { color: var(--gold); }
+    .nav-menu a.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
     .cta-login {
-      background: #B0963F;
+      background: var(--gold) !important;
       color: #1a1a1a !important;
       padding: 8px 22px;
       border-radius: 40px;
       font-weight: 600;
+      font-size: 0.85rem;
     }
 
+    /* ===== BLOG GRID ===== */
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
       gap: 30px;
-      margin-top: 30px;
+      margin-top: 40px;
     }
     .blog-card {
-      background: #1f1f1f;
-      border-radius: 20px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid #2d2d2d;
-      transition: 0.3s;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
     }
-    .blog-card:hover { border-color: #B0963F; transform: translateY(-5px); }
-    .blog-card img { width: 100%; height: 200px; object-fit: cover; }
-    .blog-content { padding: 20px; }
-    .blog-meta { color: #B0963F; font-size: 0.9rem; }
+    .blog-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+    .blog-card img { width: 100%; height: 220px; object-fit: cover; }
+    .blog-card .content { padding: 22px; }
+    .blog-card .meta { color: var(--gold); font-size: 0.8rem; font-weight: 600; }
+    .blog-card h3 { font-family: 'Poppins', sans-serif; margin: 8px 0; font-size: 1.1rem; }
+    .blog-card p { color: var(--text-secondary); font-size: 0.9rem; margin: 6px 0 12px; }
 
+    /* ===== FOOTER ===== */
     .footer {
-      background: #111;
+      background: var(--bg-secondary);
       padding: 50px 0 20px;
-      border-top: 2px solid #B0963F40;
+      border-top: 2px solid rgba(176,150,63,0.15);
     }
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 30px;
     }
-    .footer a { color: #aaa; display: block; margin: 5px 0; }
-    .footer a:hover { color: #B0963F; }
-    .footer-copy { border-top: 1px solid #2d2d2d; padding-top: 25px; margin-top: 30px; text-align: center; color: #777; }
-
-    .floating-whatsapp {
-      position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff;
-      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem; box-shadow: 0 8px 25px #00000080; z-index: 999;
+    .footer a { color: var(--text-secondary); display: block; margin: 4px 0; font-size: 0.9rem; }
+    .footer a:hover { color: var(--gold); }
+    .footer-copy {
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+      margin-top: 30px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
     }
-    .dark-toggle, .back-top {
-      position: fixed; right: 30px; background: #2d2d2d; color: #B0963F;
-      width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; box-shadow: 0 4px 15px #000; z-index: 999; border: 1px solid #444;
+
+    .floating-widget {
+      position: fixed;
+      right: 28px;
+      background: var(--bg-card);
+      color: var(--gold);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      z-index: 999;
+      border: 1px solid var(--border-color);
       cursor: pointer;
+      transition: var(--transition);
     }
-    .dark-toggle { bottom: 110px; }
-    .back-top { bottom: 170px; }
+    .floating-widget:hover { background: var(--gold); color: #1a1a1a; transform: scale(1.1); }
+    #darkToggle { bottom: 110px; }
+    #backTop { bottom: 170px; }
+    #whatsappBtn { bottom: 30px; background: #25d366; color: #fff; border: none; width: 58px; height: 58px; font-size: 1.8rem; }
+    #whatsappBtn:hover { background: #20b85f; color: #fff; }
 
-    @media (max-width: 768px) {
-      .blog-grid { grid-template-columns: 1fr; }
+    @media (max-width: 992px) {
+      .blog-grid { grid-template-columns: repeat(2,1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .nav-menu { gap: 12px; font-size: 0.8rem; }
+    }
+    @media (max-width: 650px) {
+      .nav-menu { gap: 10px; font-size: 0.75rem; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .floating-widget { width: 42px; height: 42px; font-size: 1rem; right: 16px; }
+      #whatsappBtn { width: 50px; height: 50px; font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <header class="sticky-header">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
     <div class="container nav-wrapper">
       <a href="index.html" class="logo">Vibe<span>GenX</span></a>
       <ul class="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="leads.html">Insurance Leads</a></li>
-        <li><a href="pricing.html">Lead Pricing</a></li>
+        <li><a href="leads.html">Leads</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="buy.html">Buy Leads</a></li>
-        <li><a href="blog.html" class="active">Blogs</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="#" class="cta-login"><i class="fas fa-lock"></i> CRM Login</a></li>
+        <li><a href="login.html" class="cta-login"><i class="fas fa-lock"></i> CRM</a></li>
       </ul>
     </div>
   </header>
 
+  <!-- ===== BLOG SECTION ===== -->
   <section>
     <div class="container">
-      <h1 style="font-size:3rem;">Insight <span class="gold">Blogs</span></h1>
-      <p style="color:#bbb; font-size:1.2rem;">Grid of insight articles with featured images, dates, categories, and read-more links.</p>
+      <h1 style="font-size:3rem; font-family:'Poppins',sans-serif; font-weight:800;">Insight <span class="gold">Blogs</span></h1>
+      <p style="color:var(--text-secondary); font-size:1.2rem; max-width:700px;">Expert insights, tips, and trends to help you succeed in the insurance lead generation industry.</p>
       <div class="blog-grid">
-        <div class="blog-card"><img src="https://placecats.com/400/200?random=5" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 15, 2026 · Insurance</div><h3>5 Lead Generation Trends in 2026</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
-        <div class="blog-card"><img src="https://placecats.com/400/200?random=6" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 10, 2026 · Tips</div><h3>How to Close Final Expense Leads</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
-        <div class="blog-card"><img src="https://placecats.com/400/200?random=7" alt="blog"/><div class="blog-content"><div class="blog-meta">Jan 5, 2026 · Medicare</div><h3>Medicare Advantage: Key Insights</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
-        <div class="blog-card"><img src="https://placecats.com/400/200?random=8" alt="blog"/><div class="blog-content"><div class="blog-meta">Dec 28, 2025 · ACA</div><h3>ACA Insurance: What You Need to Know</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
-        <div class="blog-card"><img src="https://placecats.com/400/200?random=9" alt="blog"/><div class="blog-content"><div class="blog-meta">Dec 20, 2025 · Home</div><h3>Home Insurance Lead Conversion Tips</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
-        <div class="blog-card"><img src="https://placecats.com/400/200?random=10" alt="blog"/><div class="blog-content"><div class="blog-meta">Dec 15, 2025 · Auto</div><h3>Auto Insurance: High-Intent Strategies</h3><a href="#" style="color:#B0963F;font-weight:600;">Read More →</a></div></div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1432889821006-c7a86bc75dd8?w=400&h=220&fit=crop" alt="Insurance Trends" />
+          <div class="content">
+            <div class="meta">Jan 15, 2026 · Insurance</div>
+            <h3>5 Lead Generation Trends in 2026</h3>
+            <p>Discover the top trends shaping the lead generation industry this year.</p>
+            <a href="#" style="color:var(--gold); font-weight:600;">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=220&fit=crop" alt="Business Tips" />
+          <div class="content">
+            <div class="meta">Jan 10, 2026 · Tips</div>
+            <h3>How to Close Final Expense Leads</h3>
+            <p>Proven strategies to convert final expense leads into loyal customers.</p>
+            <a href="#" style="color:var(--gold); font-weight:600;">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=220&fit=crop" alt="Healthcare" />
+          <div class="content">
+            <div class="meta">Jan 5, 2026 · Medicare</div>
+            <h3>Medicare Advantage: Key Insights</h3>
+            <p>Everything you need to know about Medicare Advantage leads.</p>
+            <a href="#" style="color:var(--gold); font-weight:600;">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&h=220&fit=crop" alt="ACA" />
+          <div class="content">
+            <div class="meta">Dec 28, 2025 · ACA</div>
+            <h3>ACA Insurance: What You Need to Know</h3>
+            <p>Understanding the ACA marketplace and how to generate quality leads.</p>
+            <a href="#" style="color:var(--gold); font-weight:600;">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=220&fit=crop" alt="Home Insurance" />
+          <div class="content">
+            <div class="meta">Dec 20, 2025 · Home</div>
+            <h3>Home Insurance Lead Conversion Tips</h3>
+            <p>Best practices for converting home insurance leads into sales.</p>
+            <a href="#" style="color:var(--gold); font-weight:600;">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&h=220&fit=crop" alt="Auto" />
+          <div class="content">
+            <div class="meta">Dec 15, 2025 · Auto</div>
+            <h3>Auto Insurance: High-Intent Strategies</h3>
+            <p>How to identify and convert high-intent auto insurance leads.</p>
+            <a href="#" style="color:var(--gold); font-weight:600;">Read More →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container footer-grid">
-      <div><h4 style="color:#B0963F;">VibeGenX</h4><p style="color:#aaa;">Lead Generation & Live Transfers 24/7.</p><p><i class="fas fa-phone gold"></i> +923130056221</p></div>
-      <div><h4>Services</h4><a href="leads.html">Auto</a><a href="leads.html">Home</a></div>
+      <div>
+        <h3 style="color:var(--gold); font-size:1.6rem; font-weight:800;">Vibe<span style="color:var(--text-primary);">GenX</span></h3>
+        <p style="color:var(--text-secondary);">Lead Generation & Live Transfers 24/7.</p>
+        <p style="color:var(--text-secondary);"><i class="fas fa-phone" style="color:var(--gold);"></i> +923130056221</p>
+      </div>
+      <div><h4>Services</h4><a href="leads.html">Auto</a><a href="leads.html">Home</a><a href="leads.html">Final Expense</a></div>
       <div><h4>Blogs</h4><a href="blog.html">Trends</a><a href="blog.html">Tips</a></div>
-      <div><h4>Company</h4><a href="contact.html">Contact</a><a href="pricing.html">Pricing</a></div>
+      <div><h4>Company</h4><a href="contact.html">Contact</a><a href="pricing.html">Pricing</a><a href="login.html">CRM</a></div>
     </div>
     <div class="container footer-copy">All Rights Reserved © Copyright 2026 | VibeGenX</div>
   </footer>
 
-  <a href="https://wa.me/923130056221" class="floating-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
-  <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
+  <!-- ===== FLOATING WIDGETS ===== -->
+  <a href="https://wa.me/923130056221" target="_blank" class="floating-widget" id="whatsappBtn"><i class="fab fa-whatsapp"></i></a>
+  <div class="floating-widget" id="darkToggle"><i class="fas fa-moon"></i></div>
+  <div class="floating-widget" id="backTop"><i class="fas fa-chevron-up"></i></div>
 
-  <!-- Tawk.to Live Chat Script -->
+  <!-- ===== Tawk.to ===== -->
   <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6a3ee7b1eafe991d4bf9fbed/1js2ri48h';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6a3ee7b1eafe991d4bf9fbed/1js2ri48h';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
     })();
   </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
-    $(document).ready(function(){
-      $('#backTop').click(function(){ $('html,body').animate({scrollTop:0},500); });
-      $('#darkToggle').click(function(){
-        $('body').toggleClass('dark-mode');
-        if($('body').hasClass('dark-mode')){ 
-          $('body').css({'background':'#0a0a0a','color':'#ddd'});
-          $('.sticky-header,.footer,.blog-card').css('background','#141414');
-          $('#darkToggle i').toggleClass('fa-moon fa-sun');
-        } else {
-          $('body').css({'background':'#1a1a1a','color':'#e8e0d2'});
-          $('.sticky-header,.footer,.blog-card').css('background','');
-          $('#darkToggle i').toggleClass('fa-moon fa-sun');
-        }
-      });
+    let darkMode = localStorage.getItem('darkMode') === 'true';
+    if (darkMode) { document.body.classList.add('light-mode'); $('#darkToggle i').removeClass('fa-moon').addClass('fa-sun'); }
+    $('#darkToggle').click(function() {
+      document.body.classList.toggle('light-mode');
+      let isLight = document.body.classList.contains('light-mode');
+      localStorage.setItem('darkMode', isLight);
+      $(this).find('i').toggleClass('fa-moon fa-sun');
     });
+    $('#backTop').click(function() { $('html,body').animate({ scrollTop: 0 }, 500); });
   </script>
 </body>
 </html>
