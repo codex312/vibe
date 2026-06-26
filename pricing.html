@@ -94,11 +94,6 @@
     .footer a:hover { color: #B0963F; }
     .footer-copy { border-top: 1px solid #2d2d2d; padding-top: 25px; margin-top: 30px; text-align: center; color: #777; }
 
-    .floating-whatsapp {
-      position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff;
-      width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem; box-shadow: 0 8px 25px #00000080; z-index: 999;
-    }
     .dark-toggle, .back-top {
       position: fixed; right: 30px; background: #2d2d2d; color: #B0963F;
       width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -107,6 +102,7 @@
     }
     .dark-toggle { bottom: 110px; }
     .back-top { bottom: 170px; }
+    .dark-toggle:hover, .back-top:hover { background: #B0963F; color: #1a1a1a; }
 
     @media (max-width: 768px) {
       .pricing-grid { grid-template-columns: 1fr; }
@@ -171,7 +167,6 @@
     <div class="container footer-copy">All Rights Reserved © Copyright 2026 | VibeGenX</div>
   </footer>
 
-  <a href="https://wa.me/923130056221" class="floating-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
   <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
   <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
 
