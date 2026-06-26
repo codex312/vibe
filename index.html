@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <style>
+    /* ===== GLOBAL STYLES ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: #1a1a1a;
@@ -27,6 +28,8 @@
       font-weight: 700;
     }
     .gold { color: #B0963F; }
+    .bg-gold { background: #B0963F; }
+    .text-gold { color: #B0963F; }
     a { color: #B0963F; text-decoration: none; transition: 0.3s; }
     a:hover { color: #d4b05e; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -272,10 +275,11 @@
   </style>
 </head>
 <body>
-  <!-- Scroll Progress -->
+
+  <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- HEADER -->
+  <!-- ===== HEADER ===== -->
   <header class="sticky-header">
     <div class="container nav-wrapper">
       <a href="index.html" class="logo">Vibe<span>GenX</span></a>
@@ -291,11 +295,13 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ===== HERO SECTION ===== -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="live-indicator"><span class="pulse-dot"></span> Live 24/7 · exclusive leads</div>
+        <div class="live-indicator">
+          <span class="pulse-dot"></span> Live 24/7 · exclusive leads
+        </div>
         <h1>Lead Generation & <span>Live Transfers 24/7</span></h1>
         <p>We offer exceptional lead generation and outsourcing services, positioning us as the foremost provider of B2C and B2B leads in the USA.</p>
         <ul class="hero-bullets">
@@ -310,48 +316,109 @@
     </div>
   </section>
 
-  <!-- TRUST BADGES -->
+  <!-- ===== TRUST BADGES ===== -->
   <section style="padding: 20px 0 0;">
     <div class="container trust-grid">
-      <div class="trust-item"><i class="fas fa-award"></i><div class="counter" data-target="12">0</div><div>+ Years Experience</div></div>
-      <div class="trust-item"><i class="fas fa-bolt"></i><div class="counter" data-target="15000">0</div><div>+ Leads Delivered</div></div>
-      <div class="trust-item"><i class="fas fa-shield-alt"></i><div class="counter" data-target="98">0</div><div>% Satisfaction</div></div>
-      <div class="trust-item"><i class="fas fa-handshake"></i><div class="counter" data-target="4.9">0</div><div>Rating</div></div>
+      <div class="trust-item">
+        <i class="fas fa-award"></i>
+        <div class="counter" data-target="12">0</div>
+        <div>+ Years Experience</div>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-bolt"></i>
+        <div class="counter" data-target="15000">0</div>
+        <div>+ Leads Delivered</div>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-shield-alt"></i>
+        <div class="counter" data-target="98">0</div>
+        <div>% Satisfaction</div>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-handshake"></i>
+        <div class="counter" data-target="4.9">0</div>
+        <div>Rating</div>
+      </div>
     </div>
   </section>
 
-  <!-- LEAD TYPES -->
+  <!-- ===== LEAD TYPES ===== -->
   <section>
     <div class="container">
       <h2 style="font-size:2.2rem;">Leads we offer are <span class="gold">verified</span> and exclusive</h2>
       <p style="color:#bbb;">We provide real-time, exclusive leads across multiple insurance verticals.</p>
       <div class="lead-grid">
-        <div class="lead-card"><i class="fas fa-car"></i><h4>Auto Insurance</h4><p>High-intent consumers actively seeking auto insurance.</p></div>
-        <div class="lead-card"><i class="fas fa-home"></i><h4>Home Insurance</h4><p>Top-notch home insurance leads and calls.</p></div>
-        <div class="lead-card"><i class="fas fa-heartbeat"></i><h4>Final Expense</h4><p>Consumers interested in final expense insurance.</p></div>
-        <div class="lead-card"><i class="fas fa-hospital"></i><h4>Health Insurance</h4><p>Genuinely interested health insurance consumers.</p></div>
-        <div class="lead-card"><i class="fas fa-medkit"></i><h4>Medicare</h4><p>Medicare agents drive success with our leads.</p></div>
-        <div class="lead-card"><i class="fas fa-flag-usa"></i><h4>ACA Insurance</h4><p>Find the best ACA plan for your needs.</p></div>
-        <div class="lead-card"><i class="fas fa-motorcycle"></i><h4>MVA Insurance</h4><p>Explore MVA insurance options with our leads.</p></div>
-        <div class="lead-card"><i class="fas fa-tools"></i><h4>Home Warranty</h4><p>Real-time leads matched to your exact filters.</p></div>
+        <div class="lead-card">
+          <i class="fas fa-car"></i>
+          <h4>Auto Insurance</h4>
+          <p>High-intent consumers actively seeking auto insurance.</p>
+        </div>
+        <div class="lead-card">
+          <i class="fas fa-home"></i>
+          <h4>Home Insurance</h4>
+          <p>Top-notch home insurance leads and calls.</p>
+        </div>
+        <div class="lead-card">
+          <i class="fas fa-heartbeat"></i>
+          <h4>Final Expense</h4>
+          <p>Consumers interested in final expense insurance.</p>
+        </div>
+        <div class="lead-card">
+          <i class="fas fa-hospital"></i>
+          <h4>Health Insurance</h4>
+          <p>Genuinely interested health insurance consumers.</p>
+        </div>
+        <div class="lead-card">
+          <i class="fas fa-medkit"></i>
+          <h4>Medicare</h4>
+          <p>Medicare agents drive success with our leads.</p>
+        </div>
+        <div class="lead-card">
+          <i class="fas fa-flag-usa"></i>
+          <h4>ACA Insurance</h4>
+          <p>Find the best ACA plan for your needs.</p>
+        </div>
+        <div class="lead-card">
+          <i class="fas fa-motorcycle"></i>
+          <h4>MVA Insurance</h4>
+          <p>Explore MVA insurance options with our leads.</p>
+        </div>
+        <div class="lead-card">
+          <i class="fas fa-tools"></i>
+          <h4>Home Warranty</h4>
+          <p>Real-time leads matched to your exact filters.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- ===== FAQ SECTION ===== -->
   <section style="background:#141414;">
     <div class="container">
       <h2 style="font-size:2.2rem;">Get Your <span class="gold">Questions</span> Answered</h2>
-      <div class="faq-item"><div class="faq-question">How are your insurance leads generated? <i class="fas fa-plus"></i></div><div class="faq-answer">We employ online marketing, targeted ads, and partnerships with trusted platforms.</div></div>
-      <div class="faq-item"><div class="faq-question">What is the quality of your insurance leads? <i class="fas fa-plus"></i></div><div class="faq-answer">We use multiple data points and filters to deliver leads with higher conversion likelihood.</div></div>
-      <div class="faq-item"><div class="faq-question">How do you ensure exclusivity of leads? <i class="fas fa-plus"></i></div><div class="faq-answer">Once a lead is sold, it is immediately withdrawn from our pool.</div></div>
-      <div class="faq-item"><div class="faq-question">What is your pricing structure? <i class="fas fa-plus"></i></div><div class="faq-answer">We operate on a per-lead basis, with pricing based on type, exclusivity, and volume.</div></div>
+      <div class="faq-item">
+        <div class="faq-question">How are your insurance leads generated? <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">We employ online marketing, targeted ads, and partnerships with trusted platforms.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is the quality of your insurance leads? <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">We use multiple data points and filters to deliver leads with higher conversion likelihood.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How do you ensure exclusivity of leads? <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">Once a lead is sold, it is immediately withdrawn from our pool.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is your pricing structure? <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">We operate on a per-lead basis, with pricing based on type, exclusivity, and volume.</div>
+      </div>
     </div>
   </section>
 
-  <!-- PARTNERS -->
+  <!-- ===== PARTNERS CAROUSEL ===== -->
   <section>
-    <div class="container"><h2 style="font-size:2rem;">Our <span class="gold">Partners</span></h2>
+    <div class="container">
+      <h2 style="font-size:2rem;">Our <span class="gold">Partners</span></h2>
       <div class="owl-carousel owl-theme partner-carousel" style="margin-top:30px;">
         <div class="partner-logo"><i class="fas fa-building"></i> Progressive</div>
         <div class="partner-logo"><i class="fas fa-shield"></i> Allstate</div>
@@ -362,92 +429,173 @@
     </div>
   </section>
 
-  <!-- BLOG -->
+  <!-- ===== BLOG SECTION ===== -->
   <section style="background:#141414;">
     <div class="container">
       <h2 style="font-size:2.2rem;">Our <span class="gold">Blogs</span></h2>
       <p style="color:#bbb;">We specialize in market prospecting by providing exclusive, high-quality leads. We believe in sharing knowledge for the benefit of all.</p>
       <div class="owl-carousel owl-theme blog-carousel" style="margin-top:30px;">
-        <div class="blog-card"><img src="https://images.unsplash.com/photo-1432889821006-c7a86bc75dd8?w=400&h=200&fit=crop" alt="Insurance blog"/><div class="blog-content"><div class="blog-meta">Jan 15, 2026 · Insurance</div><h4>5 Lead Generation Trends</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
-        <div class="blog-card"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop" alt="Business tips"/><div class="blog-content"><div class="blog-meta">Jan 10, 2026 · Tips</div><h4>How to Close Final Expense</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
-        <div class="blog-card"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=200&fit=crop" alt="Healthcare"/><div class="blog-content"><div class="blog-meta">Jan 5, 2026 · Medicare</div><h4>Medicare Advantage Insights</h4><a href="blog.html" style="color:#B0963F;">Read More →</a></div></div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1432889821006-c7a86bc75dd8?w=400&h=200&fit=crop" alt="Insurance blog" />
+          <div class="blog-content">
+            <div class="blog-meta">Jan 15, 2026 · Insurance</div>
+            <h4>5 Lead Generation Trends</h4>
+            <a href="blog.html" style="color:#B0963F;">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop" alt="Business tips" />
+          <div class="blog-content">
+            <div class="blog-meta">Jan 10, 2026 · Tips</div>
+            <h4>How to Close Final Expense</h4>
+            <a href="blog.html" style="color:#B0963F;">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=200&fit=crop" alt="Healthcare" />
+          <div class="blog-content">
+            <div class="blog-meta">Jan 5, 2026 · Medicare</div>
+            <h4>Medicare Advantage Insights</h4>
+            <a href="blog.html" style="color:#B0963F;">Read More →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container footer-grid">
-      <div><h4 style="color:#B0963F;">VibeGenX</h4><p style="color:#aaa;">Lead Generation & Live Transfers 24/7. Exclusive B2C & B2B insurance leads.</p><p><i class="fas fa-phone gold"></i> +923130056221<br/><i class="fas fa-envelope gold"></i> info@vibeGenX.com</p></div>
-      <div><h4>Services</h4><a href="leads.html">Auto</a><a href="leads.html">Home</a><a href="leads.html">Final Expense</a><a href="leads.html">Health</a></div>
-      <div><h4>Blogs</h4><a href="blog.html">Trends 2026</a><a href="blog.html">Closing tips</a><a href="blog.html">Medicare</a></div>
-      <div><h4>Company</h4><a href="#">Privacy Policy</a><a href="#">About</a><a href="contact.html">Contact</a><a href="pricing.html">Lead Pricing</a></div>
+      <div>
+        <h4 style="color:#B0963F;">VibeGenX</h4>
+        <p style="color:#aaa;">Lead Generation & Live Transfers 24/7. Exclusive B2C & B2B insurance leads.</p>
+        <p>
+          <i class="fas fa-phone gold"></i> +923130056221<br />
+          <i class="fas fa-envelope gold"></i> info@vibeGenX.com
+        </p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="leads.html">Auto</a>
+        <a href="leads.html">Home</a>
+        <a href="leads.html">Final Expense</a>
+        <a href="leads.html">Health</a>
+      </div>
+      <div>
+        <h4>Blogs</h4>
+        <a href="blog.html">Trends 2026</a>
+        <a href="blog.html">Closing tips</a>
+        <a href="blog.html">Medicare</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="pricing.html">Lead Pricing</a>
+      </div>
     </div>
-    <div class="container footer-copy">All Rights Reserved © Copyright 2026 | VibeGenX</div>
+    <div class="container footer-copy">
+      All Rights Reserved © Copyright 2026 | VibeGenX
+    </div>
   </footer>
 
-  <!-- FLOATING WIDGETS -->
+  <!-- ===== FLOATING WIDGETS ===== -->
   <div class="dark-toggle" id="darkToggle"><i class="fas fa-moon"></i></div>
   <div class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></div>
 
-  <!-- Tawk.to Live Chat -->
+  <!-- ===== Tawk.to Live Chat ===== -->
   <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6a3ee7b1eafe991d4bf9fbed/1js2ri48h';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6a3ee7b1eafe991d4bf9fbed/1js2ri48h';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
     })();
   </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!-- ===== SCRIPTS ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
   <script>
-    $(document).ready(function(){
-      $('.partner-carousel').owlCarousel({ loop:true, margin:30, nav:false, responsive:{ 0:{ items:2 }, 768:{ items:4 }, 1000:{ items:5 } } });
-      $('.blog-carousel').owlCarousel({ loop:true, margin:30, nav:false, responsive:{ 0:{ items:1 }, 768:{ items:2 }, 1000:{ items:3 } } });
+    $(document).ready(function() {
 
-      $('.faq-item').click(function(){
+      // ===== OWL CAROUSELS =====
+      $('.partner-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: false,
+        responsive: {
+          0: { items: 2 },
+          768: { items: 4 },
+          1000: { items: 5 }
+        }
+      });
+
+      $('.blog-carousel').owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: false,
+        responsive: {
+          0: { items: 1 },
+          768: { items: 2 },
+          1000: { items: 3 }
+        }
+      });
+
+      // ===== FAQ ACCORDION =====
+      $('.faq-item').click(function() {
         $(this).toggleClass('active').find('.faq-answer').slideToggle();
         $(this).siblings().removeClass('active').find('.faq-answer').slideUp();
       });
 
-      $(window).scroll(function(){
+      // ===== SCROLL PROGRESS =====
+      $(window).scroll(function() {
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         let scrolled = (winScroll / height) * 100;
         $('#scrollProgress').css('width', scrolled + '%');
       });
 
-      $('#backTop').click(function(){ $('html,body').animate({scrollTop:0},500); });
+      // ===== BACK TO TOP =====
+      $('#backTop').click(function() {
+        $('html,body').animate({ scrollTop: 0 }, 500);
+      });
 
-      $('#darkToggle').click(function(){
+      // ===== DARK MODE TOGGLE =====
+      $('#darkToggle').click(function() {
         $('body').toggleClass('dark-mode');
-        if($('body').hasClass('dark-mode')){ 
-          $('body').css({'background':'#0a0a0a','color':'#ddd'});
-          $('.sticky-header,.footer,.lead-card,.faq-item,.blog-card,.trust-grid').css('background','#141414');
+        if ($('body').hasClass('dark-mode')) {
+          $('body').css({ 'background': '#0a0a0a', 'color': '#ddd' });
+          $('.sticky-header, .footer, .lead-card, .faq-item, .blog-card, .trust-grid').css('background', '#141414');
           $('#darkToggle i').toggleClass('fa-moon fa-sun');
         } else {
-          $('body').css({'background':'#1a1a1a','color':'#e8e0d2'});
-          $('.sticky-header,.footer,.lead-card,.faq-item,.blog-card,.trust-grid').css('background','');
+          $('body').css({ 'background': '#1a1a1a', 'color': '#e8e0d2' });
+          $('.sticky-header, .footer, .lead-card, .faq-item, .blog-card, .trust-grid').css('background', '');
           $('#darkToggle i').toggleClass('fa-moon fa-sun');
         }
       });
 
-      $('.counter').each(function(){
+      // ===== ANIMATED COUNTERS =====
+      $('.counter').each(function() {
         let target = parseInt($(this).data('target'));
         let count = 0;
         let interval = setInterval(() => {
-          if(count >= target) { clearInterval(interval); return; }
-          count += Math.ceil(target/60);
-          if(count > target) count = target;
+          if (count >= target) { clearInterval(interval); return; }
+          count += Math.ceil(target / 60);
+          if (count > target) count = target;
           $(this).text(count);
         }, 40);
       });
+
     });
   </script>
+
 </body>
 </html>
